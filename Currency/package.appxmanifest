@@ -15,9 +15,9 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <VisualElements DisplayName="Currency" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="Currency" ForegroundText="light" BackgroundColor="#DAA520">
+      <VisualElements DisplayName="Currency" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="Currency" ForegroundText="light" BackgroundColor="#0887A7">
         <DefaultTile ShowName="allLogos" ShortName="Currencies" WideLogo="images\WideLogo.png" />
-        <SplashScreen Image="images\splashscreen.png" BackgroundColor="#DAA520" />
+        <SplashScreen Image="images\splashscreen.png" BackgroundColor="#0887A7" />
       </VisualElements>
     </Application>
   </Applications>

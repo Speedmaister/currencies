@@ -80,16 +80,3 @@ body {
 .win-appbar {
     background-color: #DAA520;
 }
-
-.tile {
-    background-color: #0887A7;
-    width: 260px;
-    height: 104px;
-    border: 1px solid #58A0DF;
-    display: inline-block;
-    margin: 5px;
-}
-
-.tile:hover {
-    background-color: #DAA520;
-}

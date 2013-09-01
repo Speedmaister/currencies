@@ -6,7 +6,7 @@
         });
     }
 
-    WinJS.Utilities.markSupportedForProcessing(goToCurrencyDetailsPage);
+    //WinJS.Utilities.markSupportedForProcessing(goToCurrencyDetailsPage);
 
     WinJS.Namespace.define("Currency.HomeCodeBehind", {
         callLoadLatestRates: function () {
