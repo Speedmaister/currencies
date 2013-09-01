@@ -63,14 +63,12 @@ WinJS.Namespace.define("Currency.Utilities", {
                     ammount = 10;
                 }
 
-                ratesTable.push({
-                    currency: visible[i],
-                    ammount: ammount,
-                    rate: 1 / this.rates[visible[i]],
-                    invert: this.rates[visible[i]],
-                    flag: flag
-                });
+                var rate = 1 / this.rates[visible[i]];
+
+                ratesTable.push(new Currency.Models.RatesModel(visible[i], ammount, rate, this.rates[visible[i]]));
             }
+
+            return ratesTable;
         }
     })
 });

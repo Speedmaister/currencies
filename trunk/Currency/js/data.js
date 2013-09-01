@@ -4,21 +4,35 @@
     var roamingFolder = Windows.Storage.ApplicationData.current.roamingFolder;
     var globalSettings;
     var requester = new Currency.Utilities.ApiRequest();
+    var codeConverter = new Currency.Utilities.CodeConverter();
 
     roamingFolder.getFileAsync("settings.json").then(function (file) {
         Windows.Storage.FileIO.readTextAsync(file).then(function (text) {
             globalSettings = JSON.parse(text);
         });
     }, function () {
-        configureSettings();
+        getCurrencies().then(function (data) {
+            var currencies = JSON.parse(data.responseText);
+            var visible = new Array();
+
+            for (currencyCode in currencies) {
+                if (currencyCode !== "_id") {
+                    visible.push(currencyCode);
+                }
+            }
+
+            configureSettings(visible);
+        }, function () { })
+        
     });
 
-    function configureSettings() {
+    function configureSettings(visible) {
         var clientInfo = new Currency.Utilities.ClientInfo(),
-                        toCurrencyCode = codeConvertor.createCountryToCurrency(),
-                        currencyCode;
+            toCurrencyCode = codeConverter.createCountryToCurrency(),
+            currencyCode;
 
         globalSettings = defaultSettings.settings;
+        globalSettings.visible = visible;
 
         clientInfo.getData(function (data) {
             var clientData = JSON.parse(data.responseText);
@@ -32,6 +46,14 @@
                 Windows.Storage.FileIO.writeTextAsync(file, JSON.stringify(globalSettings));
             });
         }, function (message) { });
+    }
+
+    function getCurrencies() {
+        var options = {
+            command: "getCurrencies"
+        }
+
+        return requester.getData(options);
     }
 
     function getLatestRates() {
@@ -63,7 +85,7 @@
     }
 
     function getSettings() {
-
+        return globalSettings;
     }
 
     function setSettings() {
@@ -73,6 +95,7 @@
     WinJS.Namespace.define("Currency.Data", {
         getLatestRates: getLatestRates,
         getHistoricalRates: getHistoricalRates,
+        getCurrencies: getCurrencies,
         getSettings: getSettings,
         setSettings: setSettings
     });
