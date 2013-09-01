@@ -59,11 +59,11 @@ WinJS.Namespace.define("Currency.Utilities", {
 
                 if (numerator.length > 1) {
                     amount = Math.pow(10, numerator.length);
-                } else if (numerator.length === 1 && numerator != "0") {
+                } else if (numerator.length === 1 && numerator > "1") {
                     amount = 10;
                 }
 
-                var rate = (1 / this.rates[visible[i]]).toFixed(4);
+                var rate = (amount / this.rates[visible[i]]).toFixed(4);
 
                 ratesTable.push(new Currency.Models.RatesModel(visible[i], amount, rate, this.rates[visible[i]], flag));
             }

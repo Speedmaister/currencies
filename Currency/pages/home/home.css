@@ -1,6 +1,14 @@
 ﻿.homepage section[role=main] {
-    margin-left: 120px;
-    margin-right: 120px;
+    /*padding-left: 120px;*/
+    /*padding-right: 120px;*/
+}
+
+.win-listview 
+{
+    padding-left: 120px;
+    padding-right: 160px;
+    height: 100%; 
+    width: calc(100% - 120px);
 }
 
 .currency-template-tile {
