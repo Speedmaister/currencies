@@ -53,9 +53,19 @@ WinJS.Namespace.define("Currency.Utilities", {
             var toCountry = codeConverter.createCurrencyToCountry();
 
             for (i = 0; i < visible.length; i++) {
-                var flag = "images/flags/" + toCountry[visible[i]].toLowerCase() + ".svg"
+                var flag = "images/flags/" + toCountry[visible[i]].toLowerCase() + ".svg";
+                var numerator = this.rates[visible[i]].toString().split(".")[0];
+                var ammount = 1;
+
+                if (numerator.length > 1) {
+                    ammount = Math.pow(10, numerator.length);
+                } else if (numerator.length === 1 && numerator != "0") {
+                    ammount = 10;
+                }
+
                 ratesTable.push({
                     currency: visible[i],
+                    ammount: ammount,
                     rate: 1 / this.rates[visible[i]],
                     invert: this.rates[visible[i]],
                     flag: flag

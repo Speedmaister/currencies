@@ -3,7 +3,7 @@
         this.baseUrl = "http://currencyrates.eu01.aws.af.cm/";
         
     }, {
-        getData: function (options, success, error) {
+        getData: function (options) {
             var url = this.baseUrl;
 
             options.command = options.command || "getLatest";
@@ -13,15 +13,11 @@
                 url += "?" + options.query;
             }
 
-            WinJS.xhr({
+            return WinJS.xhr({
                 type: "GET",
                 url: url,
                 responseType: "json",
                 headers: { "Content-Type": "application/json" }
-            }).then(function (data) {
-                success(data);
-            }, function (message) {
-                error(message);
             });
         }
     })
