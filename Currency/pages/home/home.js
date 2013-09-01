@@ -5,7 +5,9 @@
 
     WinJS.UI.Pages.define("/pages/home/home.html", {
         ready: function (element, options) {
-            Currency.HomeCodeBehind.callLoadLatestRates();
+            Currency.Data.initSettings().then(
+                Currency.HomeCodeBehind.callLoadLatestRates
+            );
         },
         init: function (element, options) {
         }

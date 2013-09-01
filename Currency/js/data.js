@@ -6,25 +6,31 @@
     var requester = new Currency.Utilities.ApiRequest();
     var codeConverter = new Currency.Utilities.CodeConverter();
 
-    roamingFolder.getFileAsync("settings.json").then(function (file) {
-        Windows.Storage.FileIO.readTextAsync(file).then(function (text) {
-            globalSettings = JSON.parse(text);
+    function initSettings() {
+
+        return new WinJS.Promise(function (complete) {
+            roamingFolder.getFileAsync("settings.json").then(function (file) {
+                Windows.Storage.FileIO.readTextAsync(file).then(function (text) {
+                    globalSettings = JSON.parse(text);
+                    complete();
+                });
+            }, function () {
+                getCurrencies().then(function (data) {
+                    var currencies = JSON.parse(data.responseText);
+                    var visible = new Array();
+
+                    for (currencyCode in currencies) {
+                        if (currencyCode !== "_id") {
+                            visible.push(currencyCode);
+                        }
+                    }
+
+                    configureSettings(visible, complete);
+                }, function () { })
+
+            });
         });
-    }, function () {
-        getCurrencies().then(function (data) {
-            var currencies = JSON.parse(data.responseText);
-            var visible = new Array();
-
-            for (currencyCode in currencies) {
-                if (currencyCode !== "_id") {
-                    visible.push(currencyCode);
-                }
-            }
-
-            configureSettings(visible);
-        }, function () { })
-        
-    });
+    }
 
     function configureSettings(visible) {
         var clientInfo = new Currency.Utilities.ClientInfo(),
@@ -43,7 +49,8 @@
 
             roamingFolder.createFileAsync("settings.json",
             Windows.Storage.CreationCollisionOption.replaceExisting).then(function (file) {
-                Windows.Storage.FileIO.writeTextAsync(file, JSON.stringify(globalSettings));
+                Windows.Storage.FileIO.writeTextAsync(file, JSON.stringify(globalSettings))
+                .then(function () { complete() });
             });
         }, function (message) { });
     }
@@ -93,6 +100,7 @@
     }
 
     WinJS.Namespace.define("Currency.Data", {
+        initSettings: initSettings,
         getLatestRates: getLatestRates,
         getHistoricalRates: getHistoricalRates,
         getCurrencies: getCurrencies,
