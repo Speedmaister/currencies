@@ -1,35 +1,32 @@
 ﻿/// <reference path="apiRequest.js" />
 /// <reference path="currencyAction.js" />
-var dataInitializer = (function () {
-
+(function () {
     var roamingFolder = Windows.Storage.ApplicationData.current.roamingFolder;
     var globalSettings;
     var requester = new Currency.Utilities.ApiRequest();
     var codeConverter = new Currency.Utilities.CodeConverter();
 
-    return new WinJS.Promise(function (complete) {
-        roamingFolder.getFileAsync("settings.json").then(function (file) {
-            Windows.Storage.FileIO.readTextAsync(file).then(function (text) {
-                globalSettings = JSON.parse(text);
-            });
-        }, function () {
-            getCurrencies().then(function (data) {
-                var currencies = JSON.parse(data.responseText);
-                var visible = new Array();
-
-                for (currencyCode in currencies) {
-                    if (currencyCode !== "_id") {
-                        visible.push(currencyCode);
-                    }
-                }
-
-                configureSettings(visible, complete);
-            }, function () { });
-
+    roamingFolder.getFileAsync("settings.json").then(function (file) {
+        Windows.Storage.FileIO.readTextAsync(file).then(function (text) {
+            globalSettings = JSON.parse(text);
         });
+    }, function () {
+        getCurrencies().then(function (data) {
+            var currencies = JSON.parse(data.responseText);
+            var visible = new Array();
+
+            for (currencyCode in currencies) {
+                if (currencyCode !== "_id") {
+                    visible.push(currencyCode);
+                }
+            }
+
+            configureSettings(visible);
+        }, function () { })
+        
     });
 
-    function configureSettings(visible, complete) {
+    function configureSettings(visible) {
         var clientInfo = new Currency.Utilities.ClientInfo(),
             toCurrencyCode = codeConverter.createCountryToCurrency(),
             currencyCode;
@@ -46,8 +43,7 @@ var dataInitializer = (function () {
 
             roamingFolder.createFileAsync("settings.json",
             Windows.Storage.CreationCollisionOption.replaceExisting).then(function (file) {
-                Windows.Storage.FileIO.writeTextAsync(file, JSON.stringify(globalSettings))
-                    .then(function () { complete() });
+                Windows.Storage.FileIO.writeTextAsync(file, JSON.stringify(globalSettings));
             });
         }, function (message) { });
     }
@@ -103,4 +99,4 @@ var dataInitializer = (function () {
         getSettings: getSettings,
         setSettings: setSettings
     });
-});
+}());
