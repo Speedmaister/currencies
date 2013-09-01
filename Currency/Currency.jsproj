@@ -301,6 +301,7 @@
     <Content Include="images\flags\wf.svg" />
     <Content Include="images\flags\ws.svg" />
     <Content Include="images\flags\xaf.svg" />
+    <Content Include="images\flags\xag.svg" />
     <Content Include="images\flags\xau.svg" />
     <Content Include="images\flags\xcd.svg" />
     <Content Include="images\flags\xdr.svg" />

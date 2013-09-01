@@ -157,7 +157,7 @@
             VUV: "VU",
             WST: "WS",
             XAF: "XAF",
-            XAG: "XAU",
+            XAG: "XAG",
             XAU: "XAU",
             XCD: "XCD",
             XDR: "XDR",
