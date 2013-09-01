@@ -6,9 +6,10 @@
 
     WinJS.UI.Pages.define("/pages/home/home.html", {
         ready: function (element, options) {
-            Currency.Data.initSettings().then(
-                Currency.HomeCodeBehind.callLoadLatestRates
-            );
+            Currency.Data.initSettings().then(function () {
+                Currency.HomeCodeBehind.callLoadLatestRates();
+                Currency.HomeCodeBehind.setLongTitle();
+            });
 
             listView = document.getElementById("rates-list").winControl;
             listView.addEventListener("click", Currency.HomeCodeBehind.goToCurrencyDetailsPage);
@@ -26,8 +27,10 @@
 
         if (currentViewState === snapped) {
             listView.layout = new WinJS.UI.ListLayout();
+            Currency.HomeCodeBehind.setShortTitle();
         } else if (lastViewState === snapped && currentViewState !== snapped) {
             listView.layout = new WinJS.UI.GridLayout();
+            Currency.HomeCodeBehind.setLongTitle();
         }
 
         lastViewState = currentViewState;
