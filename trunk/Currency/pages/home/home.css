@@ -29,7 +29,7 @@
     -ms-grid-row: 2;
     -ms-grid-row-span: 3;
     display: -ms-inline-grid;
-    -ms-grid-rows: 15px 5px 30px 5px 15px 5px 14px 5px 20px;
+    -ms-grid-rows: 15px 5px 14px 5px 30px 5px 15px 5px 20px;
     -ms-grid-columns: 51px 5px 80px;
 }
 
@@ -41,19 +41,19 @@
 
 .currency-rate {
     -ms-grid-column:3;
-    -ms-grid-row: 3;
+    -ms-grid-row: 5;
     font-size: 30px;
 }
 
 .currency-invert-tag {
     -ms-grid-column: 1;
-    -ms-grid-row: 5;
+    -ms-grid-row: 7;
     font-size: 15px;
 }
 
 .currency-amount {
     -ms-grid-column: 1;
-    -ms-grid-row: 7;
+    -ms-grid-row: 3;
     font-size: 14px;
 }
 
