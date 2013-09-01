@@ -317,6 +317,7 @@
     <Content Include="js\clientInfo.js" />
     <Content Include="js\codeConverter.js" />
     <Content Include="js\currencyAction.js" />
+    <Content Include="js\data.js" />
     <Content Include="js\default.js" />
     <Content Include="js\defaultSettings.js" />
     <Content Include="js\navigator.js" />
