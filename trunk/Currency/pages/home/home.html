@@ -11,6 +11,7 @@
 
     <link href="/css/default.css" rel="stylesheet" />
     <link href="/pages/home/home.css" rel="stylesheet" />
+    <script src="homeCodeBehind.js"></script>
     <script src="/pages/home/home.js"></script>
 </head>
 <body>
@@ -36,7 +37,7 @@
         <section aria-label="Main content" role="main">
             <div data-win-control="WinJS.UI.ListView" data-win-options="{
                 itemTemplate:select('#currency-template'),
-                itemDataSource:TO000000DO00000,
+                itemDataSource:Currency.ViewModels.currencies.dataSource,
                 layout:{
                             type: WinJS.UI.GridLayout
                         }
