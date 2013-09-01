@@ -36,7 +36,10 @@
         <section aria-label="Main content" role="main">
             <div data-win-control="WinJS.UI.ListView" data-win-options="{
                 itemTemplate:select('#currency-template'),
-                itemDataSource:TO000000DO00000
+                itemDataSource:TO000000DO00000,
+                layout:{
+                            type: WinJS.UI.GridLayout
+                        }
                 }">
             </div>
         </section>

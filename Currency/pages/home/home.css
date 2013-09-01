@@ -4,6 +4,8 @@
 }
 
 .currency-template-tile {
+	text-align:center;
+	font-family:'Segoe UI Semilight';
     width: 260px;
     height: 154px;
     display: -ms-grid;

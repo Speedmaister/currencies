@@ -314,6 +314,7 @@
     <Content Include="images\storelogo.png" />
     <Content Include="images\WideLogo.scale-100.png" />
     <Content Include="js\apiRequest.js" />
+    <Content Include="js\chart.js" />
     <Content Include="js\clientInfo.js" />
     <Content Include="js\codeConverter.js" />
     <Content Include="js\currencyAction.js" />
@@ -321,6 +322,9 @@
     <Content Include="js\default.js" />
     <Content Include="js\defaultSettings.js" />
     <Content Include="js\navigator.js" />
+    <Content Include="pages\detailpage\detailpage.css" />
+    <Content Include="pages\detailpage\detailpage.html" />
+    <Content Include="pages\detailpage\detailpage.js" />
     <Content Include="pages\home\home.css" />
     <Content Include="pages\home\home.html" />
     <Content Include="pages\home\home.js" />
