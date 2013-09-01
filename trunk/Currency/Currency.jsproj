@@ -87,6 +87,7 @@
     <Content Include="images\flags\br.svg" />
     <Content Include="images\flags\bs.svg" />
     <Content Include="images\flags\bt.svg" />
+    <Content Include="images\flags\btc.svg" />
     <Content Include="images\flags\bv.svg" />
     <Content Include="images\flags\bw.svg" />
     <Content Include="images\flags\by.svg" />
@@ -300,7 +301,9 @@
     <Content Include="images\flags\wf.svg" />
     <Content Include="images\flags\ws.svg" />
     <Content Include="images\flags\xaf.svg" />
+    <Content Include="images\flags\xau.svg" />
     <Content Include="images\flags\xcd.svg" />
+    <Content Include="images\flags\xdr.svg" />
     <Content Include="images\flags\xof.svg" />
     <Content Include="images\flags\ye.svg" />
     <Content Include="images\flags\yt.svg" />
