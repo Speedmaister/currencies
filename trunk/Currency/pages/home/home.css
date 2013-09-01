@@ -1,12 +1,9 @@
 ﻿.homepage section[role=main] {
-    /*padding-left: 120px;*/
-    /*padding-right: 120px;*/
+    margin-left: 120px;
 }
 
 .win-listview 
 {
-    padding-left: 120px;
-    padding-right: 160px;
     height: 100%; 
     width: calc(100% - 120px);
 }
@@ -78,6 +75,12 @@
         margin-left: 20px;
         margin-right: 20px;
     }
+
+    .win-listview 
+{
+    height: 100%; 
+    width: calc(100% - 20px);
+}
 }
 
 @media screen and (-ms-view-state: fullscreen-portrait) {
