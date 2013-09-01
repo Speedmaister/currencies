@@ -4,11 +4,13 @@
 
 .win-listview 
 {
+    
     height: 100%; 
     width: calc(100% - 120px);
 }
 
 .currency-template-tile {
+    background-color: #74703F;
 	text-align:center;
 	font-family:'Segoe UI Semilight';
     width: 260px;
