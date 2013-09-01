@@ -1,13 +1,13 @@
 ﻿(function () {
-    var RatesModel = WinJS.Class.define(function (currency, ammount, rate, invert, flag) {
+    var RatesModel = WinJS.Class.define(function (currency, amount, rate, invert, flag) {
         this.currency = currency;
-        this.ammount = ammount;
+        this.amount = amount;
         this.rate = rate;
         this.invert = invert,
         this.flag = flag;
     }, {
         currency: "",
-        ammount: "",
+        amount: "",
         rate: "",
         invert: "",
         flag: ""

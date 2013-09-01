@@ -55,17 +55,17 @@ WinJS.Namespace.define("Currency.Utilities", {
             for (i = 0; i < visible.length; i++) {
                 var flag = "images/flags/" + toCountry[visible[i]].toLowerCase() + ".svg";
                 var numerator = this.rates[visible[i]].toString().split(".")[0];
-                var ammount = 1;
+                var amount = 1;
 
                 if (numerator.length > 1) {
-                    ammount = Math.pow(10, numerator.length);
+                    amount = Math.pow(10, numerator.length);
                 } else if (numerator.length === 1 && numerator != "0") {
-                    ammount = 10;
+                    amount = 10;
                 }
 
                 var rate = (1 / this.rates[visible[i]]).toFixed(4);
 
-                ratesTable.push(new Currency.Models.RatesModel(visible[i], ammount, rate, this.rates[visible[i]]));
+                ratesTable.push(new Currency.Models.RatesModel(visible[i], amount, rate, this.rates[visible[i]], flag));
             }
 
             return ratesTable;
