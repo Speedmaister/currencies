@@ -4,7 +4,6 @@
 
 .win-listview 
 {
-    
     height: 100%; 
     width: calc(100% - 120px);
 }
@@ -44,14 +43,18 @@
 
 .currency-rate-tag {
     -ms-grid-column: 1;
+    -ms-grid-column-span:2;
     -ms-grid-row: 1;
     font-size: 15px;
 }
 
 .currency-rate {
     -ms-grid-column:3;
+    /*-ms-grid-column-span:2;*/
     -ms-grid-row: 5;
     font-size: 30px;
+    -ms-grid-column-align:end;
+    text-align: right;
 }
 
 .currency-invert-tag {

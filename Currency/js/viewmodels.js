@@ -2,6 +2,9 @@
     var currenciesList = new WinJS.Binding.List([]);
     var currencyDTOs;
     
+    var getGlobalSettings = function () {
+        return Currency.Data.getSettings();
+    }
 
     var loadLatestRates = function () {
         Currency.Data.getLatestRates().then(function (data) {
@@ -20,10 +23,14 @@
         });
     }
 
-
+    var getCurrenciesNames = function () {
+        return Currency.Data.getCurrencies();
+    }
 
     WinJS.Namespace.define("Currency.ViewModels", {
         loadLatestRates: loadLatestRates,
-        currencies: currenciesList
+        currencies: currenciesList,
+        getCurrenciesNames: getCurrenciesNames,
+        getGlobalSettings: getGlobalSettings
     });
 })();
