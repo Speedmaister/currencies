@@ -3,6 +3,68 @@
     margin-right: 120px;
 }
 
+.currency-template-tile {
+	text-align:center;
+	font-family:'Segoe UI Semilight';
+    width: 260px;
+    height: 154px;
+    display: -ms-grid;
+    -ms-grid-columns: 20px 64px 20px 116px 20px;
+    -ms-grid-rows: 20px 30px 20px 64px 20px;
+}
+
+.currency-header {
+    -ms-grid-column: 2;
+    -ms-grid-row: 2;
+    width: 64px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.currency-flag {
+    -ms-grid-column: 2;
+    -ms-grid-row: 4;
+}
+
+.currency-data-container {
+    -ms-grid-column: 4;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 3;
+    display: -ms-inline-grid;
+    -ms-grid-rows: 15px 5px 14px 5px 30px 5px 15px 5px 20px;
+    -ms-grid-columns: 51px 5px 80px;
+}
+
+.currency-rate-tag {
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+    font-size: 15px;
+}
+
+.currency-rate {
+    -ms-grid-column:3;
+    -ms-grid-row: 5;
+    font-size: 30px;
+}
+
+.currency-invert-tag {
+    -ms-grid-column: 1;
+    -ms-grid-row: 7;
+    font-size: 15px;
+}
+
+.currency-amount {
+    -ms-grid-column: 1;
+    -ms-grid-row: 3;
+    font-size: 14px;
+}
+
+.currency-invert-rate {
+    -ms-grid-column: 3;
+    -ms-grid-row: 9;
+    font-size: 20px;
+}
+
 @media screen and (-ms-view-state: snapped) {
     .detailpage section[role=main] {
         margin-left: 20px;

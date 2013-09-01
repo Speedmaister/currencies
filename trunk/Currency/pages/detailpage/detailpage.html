@@ -10,9 +10,21 @@
     <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
 
     <link href="detailpage.css" rel="stylesheet" />
+    <script src="../../js/chart.js"></script>
     <script src="detailpage.js"></script>
 </head>
 <body>
+    <div id="currency-template" data-win-control="WinJS.Binding.Template">
+        <div class="currency-template-tile">
+            <div class="currency-header" data-win-bind="innerText: currency"></div>
+            <img src="#" data-win-bind="src: flag" />
+            <div class="currency-rate-tag">Rate</div>
+            <div class="currency-amount" data-win-bind="innerText: amount"></div>
+            <div class="currency-rate" data-win-bind="innerText: rate"></div>
+            <div class="currency-invert-tag">Invert Rate</div>
+            <div class="currency-invert-rate" data-win-bind="innerText: invert"></div>
+        </div>
+    </div>
     <div class="detailpage fragment">
         <header aria-label="Header content" role="banner">
             <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
@@ -22,7 +34,14 @@
         </header>
         <section aria-label="Main content" role="main">
             <table id="currency-history"></table>
-            <!-- SOME CONTROLLA -->
+            <canvas id="currency-chart" width="600" height="500" ></canvas>
+            <div data-win-control="WinJS.UI.ListView" data-win-options="{
+                itemTemplate:select('#currency-template'),
+                itemDataSource: TODO,
+                layout:{
+                        type: WinJS.UI.ListLayout
+                        }
+                }"></div>
         </section>
     </div>
 </body>
