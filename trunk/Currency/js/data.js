@@ -32,7 +32,7 @@
         });
     }
 
-    function configureSettings(visible) {
+    function configureSettings(visible, complete) {
         var clientInfo = new Currency.Utilities.ClientInfo(),
             toCurrencyCode = codeConverter.createCountryToCurrency(),
             currencyCode;
