@@ -8,7 +8,7 @@
 	font-family:'Segoe UI Semilight';
     width: 260px;
     height: 154px;
-    display: -ms-grid;
+    display: -ms-inline-grid;
     -ms-grid-columns: 20px 64px 20px 116px 20px;
     -ms-grid-rows: 20px 30px 20px 64px 20px;
 }
