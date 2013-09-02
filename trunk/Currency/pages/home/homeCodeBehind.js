@@ -44,7 +44,7 @@
 
     WinJS.Namespace.define("Currency.HomeCodeBehind", {
         callLoadLatestRates: function () {
-            Currency.ViewModels.loadLatestRates();
+                Currency.ViewModels.loadLatestRates();
         },
 
         goToCurrencyDetailsPage: goToCurrencyDetailsPage,

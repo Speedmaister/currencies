@@ -40,6 +40,7 @@
             <div id="rates-list" data-win-control="WinJS.UI.ListView" data-win-options="{
                 itemTemplate:select('#currency-template'),
                 itemDataSource:Currency.ViewModels.currencies.dataSource,
+                oniteminvoked:Currency.HomeCodeBehind.goToCurrencyDetailsPage,
                 layout:{
                             type: WinJS.UI.GridLayout
                         }
