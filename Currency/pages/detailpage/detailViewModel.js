@@ -18,7 +18,15 @@
         }
     }
 
+    var getCurrencyFullName = function (currentCurrency,title) {
+        Currency.ViewModels.getCurrenciesNames().then(function (data) {
+            var currencyNames = JSON.parse(data.responseText);
+            title.innerText = "Details for " + currencyNames[currentCurrency.currency];
+        });
+    }
+
     WinJS.Namespace.define("Currency.DetailCodeBehind.ViewModels", {
+        getCurrencyFullName:getCurrencyFullName,
         getCollectionOfDtos: getCollectionOfDtos,
         collectionOfDtos: bindedDtos
     })

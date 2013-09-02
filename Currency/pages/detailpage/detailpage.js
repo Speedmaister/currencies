@@ -9,7 +9,9 @@
         ready: function (element, options) {
             var element = this.element;
             this.historicalData.then(function (data) {
-                Currency.DetailCodeBehind.drawData(data,element);
+                Currency.DetailCodeBehind.drawData(data, element);
+                var title = document.getElementsByClassName("pagetitle")[0];
+                Currency.DetailCodeBehind.ViewModels.getCurrencyFullName(element,title);
             },function(error){
                 console.log(error);
             })
