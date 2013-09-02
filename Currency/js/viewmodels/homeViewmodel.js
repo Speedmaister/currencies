@@ -55,6 +55,21 @@
         return Currency.Data.getMonthBackData(options);
     }
 
+    var getCollectionOfDtos = function (arrayOfCurrenciesCodes) {
+        var selectedDtos = [];
+        var i, j;
+        for (i = 0; i < arrayOfCurrenciesCodes.length; i++) {
+            for (j = 0; j < currencyDTOs.length; j++) {
+                if (arrayOfCurrenciesCodes[i] === currencyDTOs[j].currency) {
+                    selectedDtos.push(currencyDTOs[j].currency);
+                    break;
+                }
+            }
+        }
+
+        return selectedDtos;
+    }
+
 
     WinJS.Namespace.define("Currency.ViewModels", {
         loadLatestRates: loadLatestRates,
@@ -62,6 +77,7 @@
         getCurrenciesNames: getCurrenciesNames,
         getGlobalSettings: getGlobalSettings,
         changeBaseCurrency: changeBaseCurrency,
-        loadMonthBackData: loadMonthBackData
+        loadMonthBackData: loadMonthBackData,
+        getCollectionOfDtos: getCollectionOfDtos
     });
 })();
