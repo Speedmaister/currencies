@@ -34,15 +34,25 @@
             </h1>
         </header>
         <section aria-label="Main content" role="main">
-            <table id="currency-history"></table>
-            <canvas id="currency-chart" width="600" height="500" ></canvas>
-            <div data-win-control="WinJS.UI.ListView" data-win-options="{
+            <div id="detail-grid">
+                <div id="currency-history">
+                    <div class="currency-history-headers">
+                        <span class="date-cell">Date</span><span class="rate-cell">Rate</span>
+                    </div>
+                    <div class="currency-history-table-container">
+                        <table class="currency-history-table"></table>
+                    </div>
+                </div>
+                <canvas id="currency-chart" width="600" height="500"></canvas>
+                <div data-win-control="WinJS.UI.ListView" data-win-options="{
                 itemTemplate:select('#currency-template'),
                 itemDataSource: TODO,
                 layout:{
                         type: WinJS.UI.ListLayout
                         }
-                }"></div>
+                }">
+                </div>
+            </div>
         </section>
     </div>
 </body>
