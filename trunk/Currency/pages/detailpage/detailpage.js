@@ -7,17 +7,18 @@
 
     WinJS.UI.Pages.define("/pages/detailpage/detailpage.html", {
         ready: function (element, options) {
+            var element = this.element;
             this.historicalData.then(function (data) {
-                Currency.DetailCodeBehind.drawData(data);
+                Currency.DetailCodeBehind.drawData(data,element);
             },function(error){
                 console.log(error);
             })
         },
         init: function (element, options) {
-            var element = Currency.ViewModels.currencies.getAt(options.indexInRatesList);
+            this.element = Currency.ViewModels.currencies.getAt(options.indexInRatesList);
             var optionsForRequest = {};
             optionsForRequest.base = Currency.ViewModels.getGlobalSettings().baseCurrency;
-            optionsForRequest.currency = element.currency;
+            optionsForRequest.currency = this.element.currency;
             var from = new Date();
             optionsForRequest.till = formatDate(new Date());
             var currentMonth = from.getMonth();

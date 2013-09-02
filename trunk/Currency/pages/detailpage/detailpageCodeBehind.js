@@ -1,11 +1,13 @@
 ﻿/// <reference path="detailViewModel.js" />
 /// <reference path="../../js/viewmodels/homeViewmodel.js" />
 (function () {
+    var currentCurrency;
     function getMonthBackData(optionsForRequest) {
         return Currency.ViewModels.loadMonthBackData(optionsForRequest);
     }
 
-    function drawData(data) {
+    function drawData(data, dtoObject) {
+        currentCurrency = dtoObject;
         var context = document.getElementById("currency-chart").getContext("2d");
         var divContainer = document.getElementById("currency-history");
         var tableOfData = divContainer.childNodes[3].childNodes[1];
@@ -29,11 +31,34 @@
             chartData.datasets[0].data.push(rate);
         }
 
-        var chart = new Chart.drawer(context).Line(chartData, {
-            scaleFontColor: "#FFF",
-        });
+        var options ={
+            scaleFontColor: "#FFF"
+        }
 
-        Currency.DetailCodeBehind.ViewModels.getCollectionOfDtos();
+        checkValues(chartData.datasets[0].data, options);
+
+        var chart = new Chart.drawer(context).Line(chartData, options);
+
+        Currency.DetailCodeBehind.ViewModels.getCollectionOfDtos(currentCurrency);
+    }
+
+    function checkValues(data, options) {
+        var areEqual = true;
+        var i;
+        for (i = 0; i < data.length - 1; i++) {
+            if (data[i] !== data[i + 1]) {
+                areEqual = false;
+                break;
+            }
+        }
+
+        if (areEqual) {
+            options.scaleOverride = true;
+            options.scaleSteps = 10;
+            var stepWidth = data[0]/10;
+            options.scaleStepWidth = stepWidth;
+            options.scaleStartValue = data[0] - 5 * stepWidth;
+        }
     }
 
     function formateReceivedDate(date) {
