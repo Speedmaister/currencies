@@ -160,6 +160,7 @@ canvas {
     #currency-history {
         display: none;
     }
+
 }
 
 @media screen and (-ms-view-state: fullscreen-portrait) {

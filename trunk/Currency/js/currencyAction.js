@@ -3,6 +3,7 @@ WinJS.Namespace.define("Currency.Utilities", {
     CurrencyAction: WinJS.Class.define(function (downloadedRates) {
         this.baseCurrency = downloadedRates.base;
         this.rates = downloadedRates.rates;
+        this.date = new Date(downloadedRates.timestamp * 1000);
     }, {
         changeBaseCurrency: function (newBase) {
             var newRate,
@@ -65,7 +66,7 @@ WinJS.Namespace.define("Currency.Utilities", {
                 var rate = (amount / this.rates[visible[i]]).toFixed(4);
                 var invert = Number(this.rates[visible[i]]).toFixed(4);
 
-                ratesTable.push(new Currency.Models.RatesModel(visible[i], amount, rate, invert, flag));
+                ratesTable.push(new Currency.Models.RatesModel(visible[i], amount, rate, invert, flag, this.date));
             }
 
             return ratesTable;
