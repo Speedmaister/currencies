@@ -38,7 +38,6 @@
                     baseCurrencyMenu.hide();
                     nav.navigate(Application.navigator.home);
                     Currency.ViewModels.changeBaseCurrency("USD");
-                    Currency.h
                 });
 
                 if (nav.location) {
