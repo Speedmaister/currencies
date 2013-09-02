@@ -99,12 +99,17 @@
 
     }
 
+    function getMonthBackData(options) {
+        return requester.getData(options);
+    }
+
     WinJS.Namespace.define("Currency.Data", {
         initSettings: initSettings,
         getLatestRates: getLatestRates,
         getHistoricalRates: getHistoricalRates,
         getCurrencies: getCurrencies,
         getSettings: getSettings,
-        setSettings: setSettings
+        setSettings: setSettings,
+        getMonthBackData:getMonthBackData
     });
 }());
