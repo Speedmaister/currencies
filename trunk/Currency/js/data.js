@@ -95,8 +95,12 @@
         return globalSettings;
     }
 
-    function setSettings() {
-
+    function setSettings(newSettings) {
+        globalSettings = newSettings;
+        roamingFolder.createFileAsync("settings.json",
+            Windows.Storage.CreationCollisionOption.replaceExisting).then(function (file) {
+                Windows.Storage.FileIO.writeTextAsync(file, JSON.stringify(globalSettings));
+            });
     }
 
     function getMonthBackData(options) {

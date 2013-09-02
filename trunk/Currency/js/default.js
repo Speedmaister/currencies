@@ -23,7 +23,23 @@
                 nav.history = app.sessionState.history;
             }
             args.setPromise(WinJS.UI.processAll().then(function () {
-                var baseCurrencyBtn = document.getElementById("");
+                var baseCurrencyBtn = document.getElementById("baseCurrency").winControl;
+                var historicalBtn = document.getElementById("historical").winControl;
+                var baseCurrencyMenu = document.getElementById("baseCurrencyMenu").winControl;
+                var baseCurrencySelect = document.getElementById("baseCurrencySelect");
+
+                Currency.DefaultCodeBehind.setBaseCurrencySelect(baseCurrencySelect);
+
+                baseCurrencyBtn.addEventListener("click", function () {
+                    baseCurrencyMenu.show();
+                });
+
+                baseCurrencySelect.addEventListener("change", function (event) {
+                    baseCurrencyMenu.hide();
+                    nav.navigate(Application.navigator.home);
+                    Currency.ViewModels.changeBaseCurrency("USD");
+                    Currency.h
+                });
 
                 if (nav.location) {
                     nav.history.current.initialPlaceholder = true;
