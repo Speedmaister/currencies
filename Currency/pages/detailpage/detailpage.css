@@ -167,4 +167,25 @@ canvas {
         margin-left: 100px;
         margin-right: 100px;
     }
+
+    #detail-grid {
+        display: -ms-inline-grid;
+        -ms-grid-columns: 1fr;
+        -ms-grid-rows: 450px 20px 500px 20px 1fr;
+    }
+
+    #currency-small-list-view {
+        -ms-grid-column: 5;
+        -ms-grid-row: 1;
+    }
+
+    canvas {
+        -ms-grid-column: 5;
+        -ms-grid-row: 3;
+    }
+
+    #currency-history {
+        -ms-grid-column: 5;
+        -ms-grid-row: 1;
+    }
 }
