@@ -6,7 +6,17 @@
 #detail-grid {
     height: 100%;
     display: -ms-inline-grid;
-    -ms-grid-columns: 183px 40px 600px 40px 260px 1fr;
+    -ms-grid-columns: 183px 40px 600px 40px 1fr;
+}
+
+#detail-grid div td tr th span{
+    margin:0;
+    padding:0;
+}
+
+#currency-small-list-view {
+    width:280px;
+    -ms-grid-column: 5;
 }
 
 canvas {
@@ -132,6 +142,10 @@ canvas {
         display: -ms-inline-grid;
         -ms-grid-columns: none;
         -ms-grid-rows: 450px 20px 500px 20px 700px;
+    }
+
+    #currency-small-list-view {
+        -ms-grid-row: 5;
     }
 
     canvas {

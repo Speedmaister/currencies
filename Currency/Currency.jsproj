@@ -329,11 +329,11 @@
     <Content Include="js\models\homeModel.js" />
     <Content Include="js\navigator.js" />
     <Content Include="js\viewmodels\homeViewmodel.js" />
-    <Content Include="pages\detailpage\detaildata.js" />
     <Content Include="pages\detailpage\detailpage.css" />
     <Content Include="pages\detailpage\detailpage.html" />
     <Content Include="pages\detailpage\detailpage.js" />
     <Content Include="pages\detailpage\detailpageCodeBehind.js" />
+    <Content Include="pages\detailpage\detailViewModel.js" />
     <Content Include="pages\home\home.css" />
     <Content Include="pages\home\home.html" />
     <Content Include="pages\home\home.js" />

@@ -1,4 +1,5 @@
-﻿/// <reference path="../../js/viewmodels/homeViewmodel.js" />
+﻿/// <reference path="detailViewModel.js" />
+/// <reference path="../../js/viewmodels/homeViewmodel.js" />
 (function () {
     function getMonthBackData(optionsForRequest) {
         return Currency.ViewModels.loadMonthBackData(optionsForRequest);
@@ -32,8 +33,7 @@
             scaleFontColor: "#FFF",
         });
 
-        var mainCurrencies = Currency.ViewModels.getGlobalSettings();
-        mainCurrencies
+        Currency.DetailCodeBehind.ViewModels.getCollectionOfDtos();
     }
 
     function formateReceivedDate(date) {

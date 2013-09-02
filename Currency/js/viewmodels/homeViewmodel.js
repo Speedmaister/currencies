@@ -61,10 +61,10 @@
     var getCollectionOfDtos = function (arrayOfCurrenciesCodes) {
         var selectedDtos = [];
         var i, j;
-        for (i = 0; i < arrayOfCurrenciesCodes.length; i++) {
+        for (i = 0; i < 3; i++) {
             for (j = 0; j < currencyDTOs.length; j++) {
                 if (arrayOfCurrenciesCodes[i] === currencyDTOs[j].currency) {
-                    selectedDtos.push(currencyDTOs[j].currency);
+                    selectedDtos.push(currencyDTOs[j]);
                     break;
                 }
             }
