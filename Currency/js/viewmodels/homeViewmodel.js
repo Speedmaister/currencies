@@ -73,6 +73,12 @@
         return selectedDtos;
     }
 
+    var getdownloadedRates = function () {
+        if (downloadedRates) {
+            return downloadedRates;
+        }
+    }
+
 
     WinJS.Namespace.define("Currency.ViewModels", {
         loadLatestRates: loadLatestRates,
@@ -81,6 +87,7 @@
         getGlobalSettings: getGlobalSettings,
         changeBaseCurrency: changeBaseCurrency,
         loadMonthBackData: loadMonthBackData,
-        getCollectionOfDtos: getCollectionOfDtos
+        getCollectionOfDtos: getCollectionOfDtos,
+        getdownloadedRates: getdownloadedRates
     });
 })();

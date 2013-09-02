@@ -80,3 +80,8 @@ body {
 .win-appbar {
     background-color: #DAA520;
 }
+
+option:checked, select:focus::-ms-value { 
+    background-color: #DAA520;
+    color: rgb(255, 255, 255);
+}
