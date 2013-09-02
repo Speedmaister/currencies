@@ -32,31 +32,9 @@
             var chart = new Chart.drawer(context).Line(data, {});
 
         },
-
-        load: function (uri) {
-            return WinJS.UI.Fragments.render(uri).then(function (domElements) {
-                console.log(domElements);
-
-                var currentDateTime = new Date();
-
-                var introTextParagraph = WinJS.Utilities.query("#introducing-text", domElements)[0];
-                introTextParagraph.innerHTML += " on " + currentDateTime.toLocaleDateString();
-
-                var picHeader = WinJS.Utilities.query("#pic-header", domElements)[0];
-
-                var currHours = currentDateTime.getHours();
-
-                var daytimeString = currHours > 6 && currHours < 18 ? "day" : "night";
-                picHeader.innerHTML += " at " + currentDateTime.toLocaleTimeString() + " (" + daytimeString + ")";
-
-                var picCell = WinJS.Utilities.query("#picture-cell", domElements)[0];
-                picCell.setAttribute("data-daytime-string", daytimeString);
-
-                return domElements;
-            });
-            var context = document.getElementById("currency-chart").getContext("2d");
+        init: function (element, options) {
+            // TODO Return WinJS.Promise of the history data of the current element.
         },
-
         unload: function () {
             // TODO: Respond to navigations away from this page.
         },

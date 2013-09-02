@@ -12,7 +12,6 @@
             });
 
             listView = document.getElementById("rates-list").winControl;
-            listView.addEventListener("click", Currency.HomeCodeBehind.goToCurrencyDetailsPage);
             window.addEventListener("resize", onViewStateChanged);
         },
         init: function (element, options) {
