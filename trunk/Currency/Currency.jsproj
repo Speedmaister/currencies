@@ -339,6 +339,9 @@
     <Content Include="pages\home\home.js" />
     <Content Include="default.html" />
     <Content Include="pages\home\homeCodeBehind.js" />
+    <Content Include="pages\search\search.css" />
+    <Content Include="pages\search\search.html" />
+    <Content Include="pages\search\search.js" />
     <None Include="Currency_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
