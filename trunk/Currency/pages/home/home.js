@@ -12,38 +12,24 @@
                 
                 Currency.HomeCodeBehind.populateCurrencySelect(baseCurrencySelect);
             });
-            
-            window.addEventListener("resize", onViewStateChanged);
+
+            this.updateLayout(element, Windows.UI.ViewManagement.ApplicationView.value, null);
         },
-        init: function (element, options) {
+
+        updateLayout: function (element, viewState, lastViewState) {
+            var listView = document.getElementById("rates-list").winControl;
+
+            if (viewState === Windows.UI.ViewManagement.ApplicationViewState.snapped) {
+                if (listView.layout.horizontal) {
+                    listView.layout = new WinJS.UI.ListLayout();
+                }
+            }
+            else {
+                if (!listView.layout.horizontal) {
+                    listView.layout = new WinJS.UI.GridLayout();
+                }
+            }
+
         }
     });
-
-    var lastViewState;
-
-    function onViewStateChanged() {
-        var currentViewState = Windows.UI.ViewManagement.ApplicationView.value;
-        var snapped = Windows.UI.ViewManagement.ApplicationViewState.snapped;
-        var listView = document.getElementById("rates-list");
-        var appbar = document.getElementById("appbar").winControl;
-
-        if (currentViewState === snapped) {
-            if (listView) {
-                listView.winControl.layout = new WinJS.UI.ListLayout();
-                Currency.HomeCodeBehind.setShortTitle();
-            }
-            
-            appbar.disabled = true;
-        } else if (lastViewState === snapped && currentViewState !== snapped) {
-            if (listView) {
-                listView.winControl.layout = new WinJS.UI.GridLayout();
-                Currency.HomeCodeBehind.setLongTitle();
-            }
-            
-            appbar.disabled = false;
-        }
-
-        lastViewState = currentViewState;
-    }
-
 })();
