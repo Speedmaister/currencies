@@ -13,7 +13,7 @@
     app.addEventListener("activated", function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
-
+               
             } else {
                 // TODO: This application has been reactivated from suspension.
                 // Restore application state here.
@@ -23,6 +23,8 @@
                 nav.history = app.sessionState.history;
             }
             args.setPromise(WinJS.UI.processAll().then(function () {
+                var baseCurrencyBtn = document.getElementById("");
+
                 if (nav.location) {
                     nav.history.current.initialPlaceholder = true;
                     return nav.navigate(nav.location, nav.state);
