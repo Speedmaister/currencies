@@ -2,7 +2,8 @@
 (function () {
     var currenciesList = new WinJS.Binding.List([]);
     var currencyDTOs;
-    
+    var downloadedRates;
+
     var getGlobalSettings = function () {
         return Currency.Data.getSettings();
     }
@@ -10,20 +11,40 @@
     var loadLatestRates = function () {
         if (currenciesList.length < 1) {
             Currency.Data.getLatestRates().then(function (data) {
-                var downloadedRates = JSON.parse(data.responseText);
+                downloadedRates = JSON.parse(data.responseText);
                 var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
-                var settings = Currency.Data.getSettings();
-
-                currencyDTOs = currencyManipulator.getRatesTable(settings.visible);
-
-                var currentCount = currenciesList.dataSource.list.length
-                currenciesList.dataSource.list.splice(0, currentCount);
-
-                for (var i = 0; i < currencyDTOs.length; i++) {
-                    currenciesList.push(currencyDTOs[i]);
-                }
+                bindRatesDto(currencyManipulator);
             });
         }
+    }
+
+    var getCurrenciesNames = function () {
+        return Currency.Data.getCurrencies();
+    }
+
+    var changeBaseCurrency = function (currencyCode) {
+        if (downloadedRates) {
+            var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
+            currencyManipulator.changeBaseCurrency(currencyCode);
+            var settings = Currency.Data.getSettings();
+            settings.baseCurrency = currencyCode;
+            Currency.Data.setSettings(settings);
+            bindRatesDto(currencyManipulator);
+        }
+    }
+
+    var bindRatesDto = function (currencyManipulator) {
+        var settings = Currency.Data.getSettings();
+
+        currencyDTOs = currencyManipulator.getRatesTable(settings.visible);
+
+        var currentCount = currenciesList.dataSource.list.length
+        currenciesList.dataSource.list.splice(0, currentCount);
+
+        for (var i = 0; i < currencyDTOs.length; i++) {
+            currenciesList.push(currencyDTOs[i]);
+        }
+
     }
 
     var loadMonthBackData = function (optionsForRequest) {
@@ -34,15 +55,13 @@
         return Currency.Data.getMonthBackData(options);
     }
 
-        var getCurrenciesNames = function () {
-            return Currency.Data.getCurrencies();
-        }
 
-        WinJS.Namespace.define("Currency.ViewModels", {
-            loadLatestRates: loadLatestRates,
-            currencies: currenciesList,
-            getCurrenciesNames: getCurrenciesNames,
-            getGlobalSettings: getGlobalSettings,
-            loadMonthBackData: loadMonthBackData
-        });
-    })();
+    WinJS.Namespace.define("Currency.ViewModels", {
+        loadLatestRates: loadLatestRates,
+        currencies: currenciesList,
+        getCurrenciesNames: getCurrenciesNames,
+        getGlobalSettings: getGlobalSettings,
+        changeBaseCurrency: changeBaseCurrency,
+        loadMonthBackData: loadMonthBackData
+    });
+})();
