@@ -3,6 +3,7 @@
     var currenciesList = new WinJS.Binding.List([]);
     var currencyDTOs;
     var downloadedRates;
+    var currenciesNames;
 
     var getGlobalSettings = function () {
         return Currency.Data.getSettings();
@@ -19,7 +20,11 @@
     }
 
     var getCurrenciesNames = function () {
-        return Currency.Data.getCurrencies();
+        if (!currenciesNames) {
+            return Currency.Data.getCurrencies();
+        }
+        
+        return currenciesNames;
     }
 
     var changeBaseCurrency = function (event) {
