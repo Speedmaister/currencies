@@ -325,9 +325,9 @@
     <Content Include="js\data.js" />
     <Content Include="js\default.js" />
     <Content Include="js\defaultSettings.js" />
-    <Content Include="js\models.js" />
+    <Content Include="js\models\homeModel.js" />
     <Content Include="js\navigator.js" />
-    <Content Include="js\viewmodels.js" />
+    <Content Include="js\viewmodels\homeViewmodel.js" />
     <Content Include="pages\detailpage\detailpage.css" />
     <Content Include="pages\detailpage\detailpage.html" />
     <Content Include="pages\detailpage\detailpage.js" />
