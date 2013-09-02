@@ -3,9 +3,66 @@
     margin-right: 120px;
 }
 
+#detail-grid {
+    height: 100%;
+    display: -ms-inline-grid;
+    -ms-grid-columns: 183px 40px 600px 40px 260px 1fr;
+}
+
+canvas {
+    -ms-grid-column: 3;
+}
+
+#currency-history {
+    -ms-grid-column: 1;
+    font-family: 'Segoe UI';
+}
+
+    #currency-history .rate-cell {
+        width: 100px;
+        text-align: center;
+    }
+
+    #currency-history .date-cell {
+        width: 40px;
+        text-align: center;
+    }
+
+    #currency-history .currency-history-headers {
+        margin-bottom: 0;
+    }
+
+        #currency-history .currency-history-headers span {
+            background-color: rgba(220,220,220,0.5);
+            border: 1px solid rgba(220,220,220,1);
+            padding: 10px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 0px;
+        }
+
+            #currency-history .currency-history-headers span.rate-cell {
+                border-left: none;
+            }
+
+    #currency-history .currency-history-table-container {
+        overflow-y: auto;
+        height: 450px;
+    }
+
+        #currency-history .currency-history-table-container .currency-history-table {
+            margin-top: 0;
+            border-collapse: collapse;
+        }
+
+            #currency-history .currency-history-table-container .currency-history-table td {
+                border: 1px solid rgba(220,220,220,1);
+                padding: 10px;
+            }
+
 .currency-template-tile {
-	text-align:center;
-	font-family:'Segoe UI Semilight';
+    text-align: center;
+    font-family: 'Segoe UI Semilight';
     width: 260px;
     height: 154px;
     display: -ms-grid;
@@ -42,7 +99,7 @@
 }
 
 .currency-rate {
-    -ms-grid-column:3;
+    -ms-grid-column: 3;
     -ms-grid-row: 5;
     font-size: 30px;
 }
@@ -69,6 +126,21 @@
     .detailpage section[role=main] {
         margin-left: 20px;
         margin-right: 20px;
+    }
+
+    #detail-grid {
+        display: -ms-inline-grid;
+        -ms-grid-columns: none;
+        -ms-grid-rows: 450px 20px 500px 20px 700px;
+    }
+
+    canvas {
+        -ms-grid-row: 3;
+    }
+
+    #currency-history {
+        -ms-grid-row: 1;
+        font-family: 'Segoe UI';
     }
 }
 

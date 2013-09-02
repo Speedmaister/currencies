@@ -8,26 +8,7 @@
     WinJS.UI.Pages.define("/pages/detailpage/detailpage.html", {
         ready: function (element, options) {
             this.historicalData.then(function (data) {
-                var context = document.getElementById("currency-chart").getContext("2d");
-                var responseData = JSON.parse(data.responseText);
-                var chartData = {
-                    labels: [],
-                    datasets: [{
-                        fillColor: "rgba(220,220,220,0.5)",
-                        strokeColor: "rgba(220,220,220,1)",
-                        pointColor: "rgba(220,220,220,1)",
-                        pointStrokeColor: "#fff",
-                        data: []
-                    }]
-                }
-
-                var i;
-                for (var date in responseData) {
-                    chartData.labels.push(date.toString());
-                    chartData.datasets[0].data.push(1/Number(responseData[date]));
-                }
-                var chart = new Chart.drawer(context).Line(chartData, {
-                });
+                Currency.DetailCodeBehind.drawData(data);
             },function(error){
                 console.log(error);
             })
@@ -66,5 +47,7 @@
     function padStr(i) {
         return (i < 10) ? "0" + i : "" + i;
     }
+
+    
 
 })();
