@@ -13,6 +13,13 @@
                 Currency.HomeCodeBehind.populateCurrencySelect(baseCurrencySelect);
             });
 
+            document.getElementById("baseCurrency").style.display = "";
+            document.getElementById("historical").style.display = "";
+            var currentDate = Currency.ViewModels.getCurrentDate();
+            if (currentDate) {
+                Currency.HomeCodeBehind.setCurrentDate(currentDate);
+            }
+
             this.updateLayout(element, Windows.UI.ViewManagement.ApplicationView.value, null);
         },
 

@@ -96,7 +96,5 @@
 }
 
 #currentDate {
-    position: fixed;
-    bottom: 50px;
-    left: 120px;
+    margin-left: 2px;
 }

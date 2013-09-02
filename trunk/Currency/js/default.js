@@ -36,7 +36,7 @@
 
                 baseCurrencySelect.addEventListener("change", function (event) {
                     baseCurrencyMenu.hide();
-                    nav.navigate(Application.navigator.home);
+                    //nav.navigate(Application.navigator.home);
                     Currency.ViewModels.changeBaseCurrency(event);
                 });
 

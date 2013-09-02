@@ -11,10 +11,13 @@
             this.historicalData.then(function (data) {
                 Currency.DetailCodeBehind.drawData(data, element);
                 var title = document.getElementsByClassName("pagetitle")[0];
-                Currency.DetailCodeBehind.ViewModels.getCurrencyFullName(element,title);
-            },function(error){
+                Currency.DetailCodeBehind.ViewModels.getCurrencyFullName(element, title);
+            }, function (error) {
                 console.log(error);
-            })
+            });
+
+            document.getElementById("baseCurrency").style.display = "none";
+            document.getElementById("historical").style.display = "none";
         },
         init: function (element, options) {
             this.element = Currency.ViewModels.currencies.getAt(options.indexInRatesList);
