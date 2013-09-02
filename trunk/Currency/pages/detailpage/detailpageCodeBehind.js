@@ -1,4 +1,5 @@
-﻿(function () {
+﻿/// <reference path="../../js/viewmodels/homeViewmodel.js" />
+(function () {
     function getMonthBackData(optionsForRequest) {
         return Currency.ViewModels.loadMonthBackData(optionsForRequest);
     }
@@ -19,10 +20,6 @@
             }]
         }
 
-        var i;
-        for (i = 0; i < 40; i++) {
-            addRowToTable(tableOfData, "01.01", "33.3333");
-        }
         for (var date in responseData) {
             var formatedDate = formateReceivedDate(date);
             var rate = formatRate(responseData[date]);
@@ -30,9 +27,13 @@
             chartData.labels.push(formatedDate);
             chartData.datasets[0].data.push(rate);
         }
+
         var chart = new Chart.drawer(context).Line(chartData, {
             scaleFontColor: "#FFF",
         });
+
+        var mainCurrencies = Currency.ViewModels.getGlobalSettings();
+        mainCurrencies
     }
 
     function formateReceivedDate(date) {
