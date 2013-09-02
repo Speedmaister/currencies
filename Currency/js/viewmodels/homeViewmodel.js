@@ -1,4 +1,5 @@
-﻿(function () {
+﻿/// <reference path="../data.js" />
+(function () {
     var currenciesList = new WinJS.Binding.List([]);
     var currencyDTOs;
     
@@ -25,6 +26,14 @@
         }
     }
 
+    var loadMonthBackData = function (optionsForRequest) {
+        var options = {};
+        options.command = "getCurrencyForPeriod";
+        options.query = "from=" + optionsForRequest.from + "&till=" + optionsForRequest.till
+                        + "&base=" + optionsForRequest.base + "&currency=" + optionsForRequest.currency;
+        return Currency.Data.getMonthBackData(options);
+    }
+
         var getCurrenciesNames = function () {
             return Currency.Data.getCurrencies();
         }
@@ -33,6 +42,7 @@
             loadLatestRates: loadLatestRates,
             currencies: currenciesList,
             getCurrenciesNames: getCurrenciesNames,
-            getGlobalSettings: getGlobalSettings
+            getGlobalSettings: getGlobalSettings,
+            loadMonthBackData: loadMonthBackData
         });
     })();

@@ -331,6 +331,7 @@
     <Content Include="pages\detailpage\detailpage.css" />
     <Content Include="pages\detailpage\detailpage.html" />
     <Content Include="pages\detailpage\detailpage.js" />
+    <Content Include="pages\detailpage\detailpageCodeBehind.js" />
     <Content Include="pages\home\home.css" />
     <Content Include="pages\home\home.html" />
     <Content Include="pages\home\home.js" />
