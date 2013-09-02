@@ -21,7 +21,7 @@
 
     var getCurrenciesNames = function () {
         if (!currenciesNames) {
-            return Currency.Data.getCurrencies();
+            currenciesNames = Currency.Data.getCurrencies();
         }
         
         return currenciesNames;
