@@ -30,6 +30,7 @@
             settings.baseCurrency = currencyCode;
             Currency.Data.setSettings(settings);
             bindRatesDto(currencyManipulator);
+            Currency.HomeCodeBehind.setLongTitle();
         }
     }
 
