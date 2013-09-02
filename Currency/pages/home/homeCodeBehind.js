@@ -14,7 +14,6 @@
         if (!currencies) {
             Currency.ViewModels.getCurrenciesNames().then(function (data) {
                 currencies = JSON.parse(data.responseText);
-                
 
                 if (kind == "long") {
                     title.innerHTML = "Currency rates for " + currencies[globalSettings.baseCurrency];
@@ -80,16 +79,23 @@
         setTitle("short");
     }
 
+    var setCurrentDate = function (date)
+    {
+        var currentDateField = document.getElementById("currentDate");
+        currentDateField.innerText = date.toDateString();
+    }
+
     WinJS.Utilities.markSupportedForProcessing(goToCurrencyDetailsPage);
 
     WinJS.Namespace.define("Currency.HomeCodeBehind", {
         callLoadLatestRates: function () {
-                Currency.ViewModels.loadLatestRates();
+            Currency.ViewModels.loadLatestRates();
         },
 
         goToCurrencyDetailsPage: goToCurrencyDetailsPage,
         setLongTitle: setLongTitle,
         setShortTitle: setShortTitle,
-        populateCurrencySelect: populateCurrencySelect
+        populateCurrencySelect: populateCurrencySelect,
+        setCurrentDate: setCurrentDate
     })
 }());

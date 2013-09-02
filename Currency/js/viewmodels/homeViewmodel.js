@@ -4,6 +4,7 @@
     var currencyDTOs;
     var downloadedRates;
     var currenciesNames;
+    var currentDate;
 
     var getGlobalSettings = function () {
         return Currency.Data.getSettings();
@@ -15,6 +16,7 @@
                 downloadedRates = JSON.parse(data.responseText);
                 var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
                 bindRatesDto(currencyManipulator);
+                Currency.HomeCodeBehind.setCurrentDate(new Date(downloadedRates.timestamp * 1000));
             });
         }
     }
@@ -35,7 +37,7 @@
             var settings = Currency.Data.getSettings();
             settings.baseCurrency = currencyCode;
             Currency.Data.setSettings(settings);
-
+            Currency.HomeCodeBehind.setCurrentDate(new Date(downloadedRates.timestamp * 1000));
             bindRatesDto(currencyManipulator);
             Currency.HomeCodeBehind.setLongTitle();
         }
@@ -45,6 +47,7 @@
         var settings = Currency.Data.getSettings();
 
         currencyDTOs = currencyManipulator.getRatesTable(settings.visible);
+        currentDate = currencyDTOs[0].date;
 
         var currentCount = currenciesList.dataSource.list.length
         currenciesList.dataSource.list.splice(0, currentCount);
@@ -84,6 +87,11 @@
         }
     }
 
+    var getCurrentDate = function () {
+        if (currentDate) {
+            return currentDate;
+        }
+    }
 
     WinJS.Namespace.define("Currency.ViewModels", {
         loadLatestRates: loadLatestRates,
@@ -93,6 +101,7 @@
         changeBaseCurrency: changeBaseCurrency,
         loadMonthBackData: loadMonthBackData,
         getCollectionOfDtos: getCollectionOfDtos,
-        getdownloadedRates: getdownloadedRates
+        getdownloadedRates: getdownloadedRates,
+        getCurrentDate: getCurrentDate
     });
 })();
