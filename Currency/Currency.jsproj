@@ -324,6 +324,7 @@
     <Content Include="js\currencyAction.js" />
     <Content Include="js\data.js" />
     <Content Include="js\default.js" />
+    <Content Include="js\defaultCodeBehind.js" />
     <Content Include="js\defaultSettings.js" />
     <Content Include="js\models\homeModel.js" />
     <Content Include="js\navigator.js" />

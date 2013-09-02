@@ -5,14 +5,13 @@ WinJS.Namespace.define("Currency.Utilities", {
         this.rates = downloadedRates.rates;
     }, {
         changeBaseCurrency: function (newBase) {
-            var i = 0,
-                newRate,
+            var newRate,
                 factor;
 
             if (this.rates[newBase]) {
                 this.baseCurrency = newBase;
                 factor = this.rates[this.baseCurrency];
-                for (i = 0; i < this.rates.length; i++) {
+                for (var i in this.rates) {
                     newRate = this.rates[i] / factor;
                     this.rates[i] = newRate;
                 }

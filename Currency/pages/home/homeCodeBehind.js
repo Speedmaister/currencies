@@ -32,6 +32,49 @@
         
     }
 
+    var populateCurrencySelect = function (element) {
+        if (!currencies) {
+            Currency.ViewModels.getCurrenciesNames().then(function (data) {
+                currencies = JSON.parse(data.responseText);
+
+                if (!globalSettings) {
+                    globalSettings = Currency.ViewModels.getGlobalSettings();
+                }
+
+                var sortCurrencies = [];
+                for (var currency in currencies) {
+                    sortCurrencies.push([currency, currencies[currency]]);
+                }
+
+                sortCurrencies.sort(function (a, b) {
+                    if (a[1] > b[1]) {
+                        return 1;
+                    } else if (a[1] < b[1]) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }
+                });
+
+                for (var i = 0; i < sortCurrencies.length; i++) {
+                    if (sortCurrencies[i][0] != "_id") {
+                        var option;
+                        if (sortCurrencies[i][0] == globalSettings.baseCurrency) {
+                            option = new Option(sortCurrencies[i][1], sortCurrencies[i][0], true, true);
+                        } else {
+                            option = new Option(sortCurrencies[i][1], sortCurrencies[i][0]);
+                        }
+
+                        element.options.add(option);
+
+                    }
+                }
+            });
+        }
+
+        
+    }
+
     var setLongTitle = function () {
         setTitle("long");
     }
@@ -49,6 +92,7 @@
 
         goToCurrencyDetailsPage: goToCurrencyDetailsPage,
         setLongTitle: setLongTitle,
-        setShortTitle: setShortTitle
+        setShortTitle: setShortTitle,
+        populateCurrencySelect: populateCurrencySelect
     })
 }());
