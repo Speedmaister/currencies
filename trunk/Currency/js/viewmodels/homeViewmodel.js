@@ -22,13 +22,15 @@
         return Currency.Data.getCurrencies();
     }
 
-    var changeBaseCurrency = function (currencyCode) {
+    var changeBaseCurrency = function (event) {
         if (downloadedRates) {
+            var currencyCode = event.target.options[event.target.selectedIndex].value;
             var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
             currencyManipulator.changeBaseCurrency(currencyCode);
             var settings = Currency.Data.getSettings();
             settings.baseCurrency = currencyCode;
             Currency.Data.setSettings(settings);
+
             bindRatesDto(currencyManipulator);
             Currency.HomeCodeBehind.setLongTitle();
         }
