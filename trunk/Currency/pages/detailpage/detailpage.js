@@ -21,15 +21,17 @@
             document.getElementById("filter").style.display = "none";
         },
         init: function (element, options) {
-            if (options.indexInRatesList) {
+            var optionsForRequest = {};
+            if (options.indexInRatesList != undefined) {
                 this.element = Currency.ViewModels.currencies.getAt(options.indexInRatesList);
+                optionsForRequest.currency = this.element.currency;
             }
             else {
                 this.element = options.item;
+                optionsForRequest.currency = options.item.currency;
             }
-            var optionsForRequest = {};
+
             optionsForRequest.base = Currency.ViewModels.getGlobalSettings().baseCurrency;
-            optionsForRequest.currency = this.element.currency;
             var from = new Date();
             optionsForRequest.till = formatDate(new Date());
             var currentMonth = from.getMonth();

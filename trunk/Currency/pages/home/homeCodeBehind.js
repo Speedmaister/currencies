@@ -4,7 +4,8 @@
 
     var goToCurrencyDetailsPage = function (invokeEvent) {
         WinJS.Navigation.navigate("/pages/detailpage/detailpage.html", {
-            indexInRatesList: invokeEvent.detail.itemIndex
+            indexInRatesList: invokeEvent.detail.itemIndex,
+            item:item
         });
     }
 
