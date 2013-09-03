@@ -124,7 +124,7 @@
         var deferral = dataRequest.getDeferral();
         var file = tempFolder.createFileAsync(getCurrentDate().toDateString() + "-rates-table.csv", Windows.Storage.CreationCollisionOption.replaceExisting)
             .then(function (createdFile) {
-                Windows.Storage.FileIO.writeTextAsync(createdFile, getData()).then(function () {
+                Windows.Storage.FileIO.writeTextAsync(createdFile, getData()).done(function () {
                     dataRequest.data.setStorageItems([createdFile]);
                     deferral.complete();
                 }, function (error) {

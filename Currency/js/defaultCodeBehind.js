@@ -47,13 +47,17 @@
     }
 
     var getHistoricalData = function (date) {
+        var isSet = true;
         var today = new Date();
         today.setHours(0);
         if (date < today) {
             Currency.ViewModels.loadHistorical(date);
         } else {
-            //ToDo error
+            Currency.Utilities.showMessage("Only past dates can be choosen.");
+            isSet = false;
         }
+
+        return isSet;
     }
 
     WinJS.Namespace.define("Currency.DefaultCodeBehind", {
@@ -66,7 +70,5 @@
         calculate: calculate,
         getHistoricalData: getHistoricalData,
         backToLatest: backToLatest
-        
-
     })
 }());

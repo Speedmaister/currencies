@@ -16,8 +16,6 @@ WinJS.Namespace.define("Currency.Utilities", {
                     newRate = this.rates[i] / factor;
                     this.rates[i] = newRate;
                 }
-            } else {
-                throw new EventException("Unknown currency!");
             }
         },
 
@@ -29,8 +27,6 @@ WinJS.Namespace.define("Currency.Utilities", {
             if (this.rates[from] && this.rates[to]) {
                 result = ammount * (this.rates[to] / this.rates[from]);
                 return result;
-            } else {
-                throw new EventException("Unknown currency!");
             }
         },
 
@@ -40,8 +36,6 @@ WinJS.Namespace.define("Currency.Utilities", {
             if (this.rates[from] && this.rates[to]) {
                 result = this.rates[to] / this.rates[from];
                 return result;
-            } else {
-                throw new EventException("Unknown currency!");
             }
         },
 
@@ -60,7 +54,8 @@ WinJS.Namespace.define("Currency.Utilities", {
 
                     if (numerator.length > 1) {
                         amount = Math.pow(10, numerator.length);
-                    } else if (numerator.length === 1 && numerator > "1") {
+                    }
+                    else if (numerator.length === 1 && numerator > "1") {
                         amount = 10;
                     }
 
@@ -73,5 +68,10 @@ WinJS.Namespace.define("Currency.Utilities", {
 
             return ratesTable;
         }
-    })
+    }),
+
+    showMessage: function (textMessage) {
+        var msg = new Windows.UI.Popups.MessageDialog(textMessage);
+        msg.showAsync();
+    }
 });

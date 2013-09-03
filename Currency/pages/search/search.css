@@ -13,7 +13,6 @@
     }
 
 .search section[role=main] {
-    /* Define a grid with rows for the filters and results */
     -ms-grid-columns: 1fr;
     -ms-grid-rows: 180px 1fr;
     -ms-grid-row: 1;
@@ -53,7 +52,6 @@
                     opacity: 1.00;
                 }
 
-        /* Hide the <select> filter list. It will be shown in snapped mode only. */
         .search section[role=main] .filterarea .filterselect {
             display: none;
         }
@@ -152,7 +150,6 @@
         }
 
     .search section[role=main] {
-        /* Rows for the filters and the results */
         -ms-grid-columns: 1fr;
         -ms-grid-rows: 30px 1fr;
         -ms-grid-row: 2;
@@ -166,12 +163,10 @@
             margin-top: 36px;
         }
 
-        /* Hide the horizontal list of filters in snapped mode. */
         .search section[role=main] .filterarea .filterbar {
             display: none;
         }
 
-        /* Show a <select> list of filters in snapped mode */
         .search section[role=main] .filterarea .filterselect {
             display: inline;
             margin-left: 20px;

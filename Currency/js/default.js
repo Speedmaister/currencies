@@ -1,6 +1,4 @@
 ﻿/// <reference path="defaultSettings.js" />
-// For an introduction to the Navigation template, see the following documentation:
-// http://go.microsoft.com/fwlink/?LinkId=232506
 (function () {
     "use strict";
 
@@ -24,6 +22,7 @@
             if (app.sessionState.history) {
                 nav.history = app.sessionState.history;
             }
+
             args.setPromise(WinJS.UI.processAll().then(function () {
                 var baseCurrencyBtn = document.getElementById("baseCurrency").winControl;
                 var historicalBtn = document.getElementById("historical").winControl;
@@ -54,7 +53,6 @@
 
                 baseCurrencySelect.addEventListener("change", function (event) {
                     baseCurrencyMenu.hide();
-                    //nav.navigate(Application.navigator.home);
                     Currency.ViewModels.changeBaseCurrency(event);
                 });
 
@@ -91,10 +89,12 @@
                 });
 
                 historicalDataBtn.addEventListener("click", function () {
-                    Currency.DefaultCodeBehind.getHistoricalData(historicalDate.current);
+                    if (Currency.DefaultCodeBehind.getHistoricalData(historicalDate.current)) {
+                        latestRatesBtn.disabled = false;
+                        historicalBtn.disabled = true;
+                    }
+
                     historicalDataMenu.hide();
-                    latestRatesBtn.disabled = false;
-                    historicalBtn.disabled = true;
                 });
 
                 latestRatesBtn.addEventListener("click", function () {
@@ -116,14 +116,8 @@
     });
 
     app.oncheckpoint = function (args) {
-        // TODO: This application is about to be suspended. Save any state
-        // that needs to persist across suspensions here. If you need to 
-        // complete an asynchronous operation before your application is 
-        // suspended, call args.setPromise().
         app.sessionState.history = nav.history;
     };
-
-     
 
     app.start();
 })();
