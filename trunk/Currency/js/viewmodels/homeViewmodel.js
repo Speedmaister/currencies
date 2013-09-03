@@ -6,6 +6,8 @@
     var currenciesNames;
     var currentDate;
 
+    var tempFolder = Windows.Storage.ApplicationData.current.temporaryFolder;
+
     var getGlobalSettings = function () {
         return Currency.Data.getSettings();
     }
@@ -111,7 +113,44 @@
         }
     }
 
+    function shareFileHandler(event) {
+        var dataRequest = event.request;
+
+        dataRequest.data.properties.title = "Rates table for all currencies.";
+        dataRequest.data.properties.description = "Get all currency rates from the database for the selected date.";
+
+        dataRequest.data.properties.fileTypes.replaceAll([".csv"]);
+
+        var deferral = dataRequest.getDeferral();
+        var file = tempFolder.createFileAsync(getCurrentDate().toDateString() + "-rates-table.csv", Windows.Storage.CreationCollisionOption.replaceExisting)
+            .then(function (createdFile) {
+                Windows.Storage.FileIO.writeTextAsync(createdFile, getData()).then(function () {
+                    dataRequest.data.setStorageItems([createdFile]);
+                    deferral.complete();
+                }, function (error) {
+                    deferral.complete();
+                });
+            }, function (error) {
+                deferral.complete();
+            });
+    }
+
+    function getData() {
+        var rates = getdownloadedRates();
+        var currencyAction = new Currency.Utilities.CurrencyAction(rates);
+        var settings = getGlobalSettings();
+        var ratesTable = currencyAction.getRatesTable(settings.visible);
+        var dataToString = "Currency,Rate\n";
+        var i;
+        for (i = 0; i < ratesTable.length; i++) {
+            dataToString = dataToString + ratesTable[i].currency + "," + ratesTable[i].rate + "\n";
+        }
+
+        return dataToString;
+    }
+
     WinJS.Namespace.define("Currency.ViewModels", {
+        shareFileHandler:shareFileHandler,
         loadLatestRates: loadLatestRates,
         currencies: currenciesList,
         getCurrenciesNames: getCurrenciesNames,

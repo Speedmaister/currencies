@@ -3,6 +3,8 @@
 (function () {
     "use strict";
 
+    var dataTransferManager = Windows.ApplicationModel.DataTransfer.DataTransferManager.getForCurrentView();
+
     WinJS.UI.Pages.define("/pages/home/home.html", {
         ready: function (element, options) {
             Currency.Data.initSettings().then(function () {
@@ -11,6 +13,8 @@
                 var baseCurrencySelect = Currency.DefaultCodeBehind.getBaseCurrencySelect();
                 var fromCurrencySelect = Currency.DefaultCodeBehind.getFromCurrencySelect();
                 var toCurrencySelect = Currency.DefaultCodeBehind.getToCurrencySelect();
+
+                dataTransferManager.addEventListener("datarequested", Currency.ViewModels.shareFileHandler);
                 
                 Currency.HomeCodeBehind.populateCurrencySelect(baseCurrencySelect);
                 Currency.HomeCodeBehind.populateCurrencySelect(fromCurrencySelect);
@@ -53,5 +57,4 @@
 
         }
     });
-
 })();
