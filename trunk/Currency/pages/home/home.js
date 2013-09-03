@@ -21,14 +21,17 @@
                 Currency.HomeCodeBehind.populateCurrencySelect(toCurrencySelect);
             });
 
-            var filerShowAll = document.getElementById("filterShowAll").winControl;
-            var fiterShowSelected = document.getElementById("filterShowSelected").winControl;
+            var filterShowAll = document.getElementById("filterShowAll").winControl;
+            var filterShowSelected = document.getElementById("filterShowSelected").winControl;
             var listView = document.getElementById("rates-list").winControl;
 
-            fiterShowSelected.addEventListener("click", function () {
+            filterShowSelected.addEventListener("click", function () {
                 var selection = listView.selection.getIndices();
                 Currency.HomeCodeBehind.filterSelected(selection);
+            });
 
+            filterShowAll.addEventListener("click", function () {
+                Currency.HomeCodeBehind.filterAll();
             });
 
             document.getElementById("baseCurrency").style.display = "";
