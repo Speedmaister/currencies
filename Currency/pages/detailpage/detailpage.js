@@ -17,7 +17,7 @@
                 var title = document.getElementsByClassName("pagetitle")[0];
                 Currency.DetailCodeBehind.ViewModels.getCurrencyFullName(currentElement, title);
             }, function (error) {
-                console.log(error);
+                Currency.Utilities.showMessage("No internet connection.");
             });
 
             document.getElementById("baseCurrency").style.display = "none";

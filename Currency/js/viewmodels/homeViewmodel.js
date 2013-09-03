@@ -93,13 +93,15 @@
         return Currency.Data.getMonthBackData(options);
     }
 
-    var getCollectionOfDtos = function (arrayOfCurrenciesCodes) {
+    var getCollectionOfDtos = function (arrayOfCurrenciesCodes, currencyManipulator) {
+        var settings = getGlobalSettings();
+        var neededCurrencyDTOs = currencyManipulator.getRatesTable(settings.allCurrencies);
         var selectedDtos = [];
         var i, j;
         for (i = 0; i < 3; i++) {
-            for (j = 0; j < currencyDTOs.length; j++) {
-                if (arrayOfCurrenciesCodes[i] === currencyDTOs[j].currency) {
-                    selectedDtos.push(currencyDTOs[j]);
+            for (j = 0; j < neededCurrencyDTOs.length; j++) {
+                if (arrayOfCurrenciesCodes[i] === neededCurrencyDTOs[j].currency) {
+                    selectedDtos.push(neededCurrencyDTOs[j]);
                     break;
                 }
             }
