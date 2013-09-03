@@ -103,6 +103,30 @@
         Currency.ViewModels.showFiltered();
     }
 
+    var filterAll = function () {
+        Currency.Data.getCurrencies().then(function (data) {
+            var currencies = JSON.parse(data.responseText);
+            var visible = new Array();
+
+            for (currencyCode in currencies) {
+                if (currencyCode !== "_id") {
+                    visible.push(currencyCode);
+                }
+            }
+
+            var settings = Currency.ViewModels.getGlobalSettings();
+            if (settings) {
+                settings.visible = visible;
+                Currency.Data.setSettings(settings);
+            }
+
+            Currency.ViewModels.showFiltered();
+            
+        }, function () {
+            Currency.Utilities.showMessage("No internet connection.");
+        })
+    }
+
     WinJS.Utilities.markSupportedForProcessing(goToCurrencyDetailsPage);
 
     WinJS.Namespace.define("Currency.HomeCodeBehind", {
@@ -115,6 +139,7 @@
         setShortTitle: setShortTitle,
         populateCurrencySelect: populateCurrencySelect,
         setCurrentDate: setCurrentDate,
-        filterSelected: filterSelected
+        filterSelected: filterSelected,
+        filterAll: filterAll
     })
 }());
