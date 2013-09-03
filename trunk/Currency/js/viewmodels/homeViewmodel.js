@@ -19,7 +19,9 @@
                 var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
                 bindRatesDto(currencyManipulator);
                 Currency.HomeCodeBehind.setCurrentDate(new Date(downloadedRates.timestamp * 1000));
-            });
+            }, function () {
+                Currency.Utilities.showMessage("No internet connection.");
+            }).done();
         }
     }
 
