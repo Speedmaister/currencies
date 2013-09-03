@@ -1,7 +1,5 @@
 ﻿/// <reference path="../home/homeCodeBehind.js" />
 /// <reference path="../../js/chart.js" />
-// For an introduction to the Page Control template, see the following documentation:
-// http://go.microsoft.com/fwlink/?LinkId=232511
 (function () {
     "use strict";
 
@@ -27,6 +25,7 @@
             document.getElementById("filter").style.display = "none";
             document.getElementById("latest").style.display = "none";
         },
+
         init: function (element, options) {
             var optionsForRequest = {};
             if (options.indexInRatesList != undefined) {
@@ -40,16 +39,13 @@
 
             optionsForRequest.base = Currency.ViewModels.getGlobalSettings().baseCurrency;
             var from = Currency.ViewModels.getCurrentDate();
-            optionsForRequest.till = formatDate(Currency.ViewModels.getCurrentDate());
+            optionsForRequest.till = Currency.DetailCodeBehind.formatDate(Currency.ViewModels.getCurrentDate());
             var currentMonth = from.getMonth();
             from.setMonth(currentMonth - 1);
-            optionsForRequest.from = formatDate(from);
+            optionsForRequest.from = Currency.DetailCodeBehind.formatDate(from);
 
             this.historicalData = Currency.DetailCodeBehind.getMonthBackData(optionsForRequest);
             this.updateLayout(element, Windows.UI.ViewManagement.ApplicationView.value, null);
-        },
-        unload: function () {
-            // TODO: Respond to navigations away from this page.
         },
 
         updateLayout: function (element, viewState, lastViewState) {
@@ -65,18 +61,4 @@
             }
         }
     });
-
-    function formatDate(date) {
-        var dateStr = padStr(date.getFullYear()) + "-" +
-                padStr(1 + date.getMonth()) + "-" +
-                padStr(date.getDate());
-        return dateStr;
-    }
-
-    function padStr(i) {
-        return (i < 10) ? "0" + i : "" + i;
-    }
-
-    
-
 })();

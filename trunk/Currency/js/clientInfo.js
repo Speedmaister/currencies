@@ -3,18 +3,14 @@
         this.baseUrl = "http://ip-api.com/json";
 
     }, {
-        getData: function (success, error) {
+        getData: function () {
 
-            WinJS.xhr({
+            return WinJS.xhr({
                 type: "GET",
                 url: this.baseUrl,
                 responseType: "json",
                 headers: { "Content-Type": "application/json" }
-            }).then(function (data) {
-                success(data);
-            }, function (message) {
-                error(message);
-            });
+            })
         }
     })
 });

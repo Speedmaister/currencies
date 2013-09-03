@@ -31,7 +31,7 @@
             chartData.datasets[0].data.push(rate);
         }
 
-        var options ={
+        var options = {
             scaleFontColor: "#FFF"
         }
 
@@ -55,7 +55,7 @@
         if (areEqual) {
             options.scaleOverride = true;
             options.scaleSteps = 10;
-            var stepWidth = data[0]/10;
+            var stepWidth = data[0] / 10;
             options.scaleStepWidth = stepWidth;
             options.scaleStartValue = data[0] - 5 * stepWidth;
         }
@@ -96,7 +96,7 @@
         table.appendChild(tr);
     }
 
-    function addRowToTable(table,date, rate) {
+    function addRowToTable(table, date, rate) {
         var tr = document.createElement("tr");
         var tdDate = document.createElement("td");
         tdDate.classList.add("date-cell");
@@ -109,7 +109,19 @@
         table.appendChild(tr);
     }
 
+    function formatDate(date) {
+        var dateStr = padStr(date.getFullYear()) + "-" +
+                padStr(1 + date.getMonth()) + "-" +
+                padStr(date.getDate());
+        return dateStr;
+    }
+
+    function padStr(i) {
+        return (i < 10) ? "0" + i : "" + i;
+    }
+
     WinJS.Namespace.define("Currency.DetailCodeBehind", {
+        formatDate: formatDate,
         getMonthBackData: getMonthBackData,
         drawData: drawData,
         formateReceivedDate: formateReceivedDate,

@@ -26,8 +26,9 @@
                     }
 
                     configureSettings(visible, complete);
-                }, function () { })
-
+                }, function () {
+                    Currency.Utilities.showMessage("No internet connection.");
+                })
             });
         });
     }
@@ -40,7 +41,7 @@
         globalSettings = defaultSettings.settings;
         globalSettings.visible = visible;
 
-        clientInfo.getData(function (data) {
+        clientInfo.getData().then(function (data) {
             var clientData = JSON.parse(data.responseText);
             currencyCode = toCurrencyCode[clientData.countryCode];
             if (currencyCode) {
@@ -52,7 +53,9 @@
                 Windows.Storage.FileIO.writeTextAsync(file, JSON.stringify(globalSettings))
                 .then(function () { complete() });
             });
-        }, function (message) { });
+        }, function (message) {
+            Currency.Utilities.showMessage("No internet connection.");
+        });
     }
 
     function getCurrencies() {

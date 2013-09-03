@@ -15,7 +15,9 @@
         collectionOfDtos = Currency.ViewModels.getCollectionOfDtos(mainCurrencies);
         var i;
         for (i = 0; i < collectionOfDtos.length; i++) {
-            collectionOfDtos[i].rate = currencyAction.exchange(currentCurrency.amount, currentCurrency.currency, collectionOfDtos[i].currency).toFixed(4);
+            collectionOfDtos[i].rate = currencyAction.exchange(currentCurrency.amount,
+                                                                currentCurrency.currency,
+                                                                collectionOfDtos[i].currency).toFixed(4);
             collectionOfDtos[i].invert = (currentCurrency.amount / collectionOfDtos[i].rate).toFixed(4);
             collectionOfDtos[i].amount = currentCurrency.amount;
             bindedDtos.push(WinJS.Binding.as(collectionOfDtos[i]));
@@ -47,6 +49,7 @@
                     deferral.complete();
                 });
             }, function (error) {
+                Currency.Utilities.showMessage("Problem occured while trying to share file.");
                 deferral.complete();
             });
     }

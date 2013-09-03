@@ -15,7 +15,7 @@
                 var toCurrencySelect = Currency.DefaultCodeBehind.getToCurrencySelect();
 
                 dataTransferManager.addEventListener("datarequested", Currency.ViewModels.shareFileHandler);
-                
+
                 Currency.HomeCodeBehind.populateCurrencySelect(baseCurrencySelect);
                 Currency.HomeCodeBehind.populateCurrencySelect(fromCurrencySelect);
                 Currency.HomeCodeBehind.populateCurrencySelect(toCurrencySelect);
@@ -49,20 +49,17 @@
             if (viewState === Windows.UI.ViewManagement.ApplicationViewState.snapped) {
                 if (listView.layout.horizontal) {
                     listView.layout = new WinJS.UI.ListLayout();
-                    
+
                 }
 
                 Currency.HomeCodeBehind.setShortTitle();
                 appbar.disabled = true;
             }
-            else {
-                if (!listView.layout.horizontal) {
-                    listView.layout = new WinJS.UI.GridLayout();
-                    Currency.HomeCodeBehind.setLongTitle();
-                    appbar.disabled = false;
-                }
+            else if (!listView.layout.horizontal) {
+                listView.layout = new WinJS.UI.GridLayout();
+                Currency.HomeCodeBehind.setLongTitle();
+                appbar.disabled = false;
             }
-
         }
     });
 })();
