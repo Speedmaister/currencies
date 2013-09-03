@@ -72,6 +72,6 @@ WinJS.Namespace.define("Currency.Utilities", {
 
     showMessage: function (textMessage) {
         var msg = new Windows.UI.Popups.MessageDialog(textMessage);
-        msg.showAsync();
+        msg.showAsync().done();
     }
 });
