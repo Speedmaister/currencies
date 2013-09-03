@@ -21,7 +21,12 @@
             document.getElementById("filter").style.display = "none";
         },
         init: function (element, options) {
-            this.element = Currency.ViewModels.currencies.getAt(options.indexInRatesList);
+            if (options.indexInRatesList) {
+                this.element = Currency.ViewModels.currencies.getAt(options.indexInRatesList);
+            }
+            else {
+                this.element = options.item;
+            }
             var optionsForRequest = {};
             optionsForRequest.base = Currency.ViewModels.getGlobalSettings().baseCurrency;
             optionsForRequest.currency = this.element.currency;
