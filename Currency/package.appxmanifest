@@ -2,8 +2,8 @@
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
   <Identity Name="e0685ecb-9641-4dd2-9b2f-3862ef1a346f" Version="1.0.0.0" Publisher="CN=stamo_000" />
   <Properties>
-    <DisplayName>Currency</DisplayName>
-    <PublisherDisplayName>stamo_000</PublisherDisplayName>
+    <DisplayName>Currencies</DisplayName>
+    <PublisherDisplayName>Stamo Petkov</PublisherDisplayName>
     <Logo>images\storelogo.png</Logo>
   </Properties>
   <Prerequisites>
@@ -15,9 +15,15 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <VisualElements DisplayName="Currency" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="Currency" ForegroundText="light" BackgroundColor="#0887A7">
+      <VisualElements DisplayName="Currencies" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="Currency rates for 164 world currencies, updated daily. Historical data available. Currency calculator. Export rates through share contract or file picker." ForegroundText="light" BackgroundColor="#0887A7">
         <DefaultTile ShowName="allLogos" ShortName="Currencies" WideLogo="images\WideLogo.png" />
         <SplashScreen Image="images\splashscreen.png" BackgroundColor="#0887A7" />
+        <InitialRotationPreference>
+          <Rotation Preference="portrait" />
+          <Rotation Preference="landscape" />
+          <Rotation Preference="portraitFlipped" />
+          <Rotation Preference="landscapeFlipped" />
+        </InitialRotationPreference>
       </VisualElements>
       <Extensions>
         <Extension Category="windows.search" />
