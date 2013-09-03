@@ -38,6 +38,7 @@
             document.getElementById("historical").style.display = "";
             document.getElementById("filter").style.display = "";
             document.getElementById("latest").style.display = "";
+            document.getElementById("file-exporter").style.display = "";
 
             var currentDate = Currency.ViewModels.getCurrentDate();
             if (currentDate) {

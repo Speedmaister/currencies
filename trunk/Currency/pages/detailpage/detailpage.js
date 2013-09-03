@@ -24,6 +24,7 @@
             document.getElementById("historical").style.display = "none";
             document.getElementById("filter").style.display = "none";
             document.getElementById("latest").style.display = "none";
+            document.getElementById("file-exporter").style.display = "none";
         },
 
         init: function (element, options) {

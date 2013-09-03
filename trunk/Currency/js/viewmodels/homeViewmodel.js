@@ -50,7 +50,7 @@
         if (!currenciesNames) {
             currenciesNames = Currency.Data.getCurrencies();
         }
-        
+
         return currenciesNames;
     }
 
@@ -155,7 +155,8 @@
     }
 
     WinJS.Namespace.define("Currency.ViewModels", {
-        shareFileHandler:shareFileHandler,
+        getData: getData,
+        shareFileHandler: shareFileHandler,
         loadLatestRates: loadLatestRates,
         currencies: currenciesList,
         getCurrenciesNames: getCurrenciesNames,
