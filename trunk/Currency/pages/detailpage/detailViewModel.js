@@ -12,7 +12,7 @@
         var currencyAction = new Currency.Utilities.CurrencyAction(rates);
         bindedDtos.dataSource.list.splice(0, bindedDtos.length);
         var mainCurrencies = Currency.ViewModels.getGlobalSettings().mainCurrencies;
-        collectionOfDtos = Currency.ViewModels.getCollectionOfDtos(mainCurrencies);
+        collectionOfDtos = Currency.ViewModels.getCollectionOfDtos(mainCurrencies,currencyAction);
         var i;
         for (i = 0; i < collectionOfDtos.length; i++) {
             collectionOfDtos[i].rate = currencyAction.exchange(currentCurrency.amount,
