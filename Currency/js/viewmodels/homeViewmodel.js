@@ -21,6 +21,24 @@
         }
     }
 
+    var loadHistorical = function (date) {
+        Currency.Data.getHistoricalRates(date).then(function (data) {
+            downloadedRates = JSON.parse(data.responseText);
+            var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
+            bindRatesDto(currencyManipulator);
+            Currency.HomeCodeBehind.setCurrentDate(new Date(downloadedRates.timestamp * 1000));
+        });
+    }
+
+    var backToLatest = function () {
+        Currency.Data.getLatestRates().then(function (data) {
+            downloadedRates = JSON.parse(data.responseText);
+            var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
+            bindRatesDto(currencyManipulator);
+            Currency.HomeCodeBehind.setCurrentDate(new Date(downloadedRates.timestamp * 1000));
+        });
+    }
+
     var getCurrenciesNames = function () {
         if (!currenciesNames) {
             currenciesNames = Currency.Data.getCurrencies();
@@ -102,6 +120,8 @@
         loadMonthBackData: loadMonthBackData,
         getCollectionOfDtos: getCollectionOfDtos,
         getdownloadedRates: getdownloadedRates,
-        getCurrentDate: getCurrentDate
+        getCurrentDate: getCurrentDate,
+        loadHistorical: loadHistorical,
+        backToLatest: backToLatest
     });
 })();

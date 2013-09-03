@@ -53,20 +53,22 @@ WinJS.Namespace.define("Currency.Utilities", {
             var toCountry = codeConverter.createCurrencyToCountry();
 
             for (i = 0; i < visible.length; i++) {
-                var flag = "images/flags/" + toCountry[visible[i]].toLowerCase() + ".svg";
-                var numerator = this.rates[visible[i]].toString().split(".")[0];
-                var amount = 1;
+                if (this.rates[visible[i]]) {
+                    var flag = "images/flags/" + toCountry[visible[i]].toLowerCase() + ".svg";
+                    var numerator = this.rates[visible[i]].toString().split(".")[0];
+                    var amount = 1;
 
-                if (numerator.length > 1) {
-                    amount = Math.pow(10, numerator.length);
-                } else if (numerator.length === 1 && numerator > "1") {
-                    amount = 10;
+                    if (numerator.length > 1) {
+                        amount = Math.pow(10, numerator.length);
+                    } else if (numerator.length === 1 && numerator > "1") {
+                        amount = 10;
+                    }
+
+                    var rate = (amount / this.rates[visible[i]]).toFixed(4);
+                    var invert = Number(this.rates[visible[i]]).toFixed(4);
+
+                    ratesTable.push(new Currency.Models.RatesModel(visible[i], amount, rate, invert, flag, this.date));
                 }
-
-                var rate = (amount / this.rates[visible[i]]).toFixed(4);
-                var invert = Number(this.rates[visible[i]]).toFixed(4);
-
-                ratesTable.push(new Currency.Models.RatesModel(visible[i], amount, rate, invert, flag, this.date));
             }
 
             return ratesTable;

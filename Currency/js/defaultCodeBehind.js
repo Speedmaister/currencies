@@ -29,6 +29,10 @@
         return toCurrencySelect;
     }
 
+    var backToLatest = function () {
+        Currency.ViewModels.backToLatest();
+    }
+
     var calculate = function (input, from, to) {
         var amount = input.value;
         var currencyFrom = from.options[from.selectedIndex].value;
@@ -42,6 +46,16 @@
         roamingSettings.values['calculatorTo'] = to.selectedIndex;
     }
 
+    var getHistoricalData = function (date) {
+        var today = new Date();
+        today.setHours(0);
+        if (date < today) {
+            Currency.ViewModels.loadHistorical(date);
+        } else {
+            //ToDo error
+        }
+    }
+
     WinJS.Namespace.define("Currency.DefaultCodeBehind", {
         setBaseCurrencySelect: setBaseCurrencySelect,
         getBaseCurrencySelect: getBaseCurrencySelect,
@@ -49,7 +63,9 @@
         getFromCurrencySelect: getFromCurrencySelect,
         getToCurrencySelect: getToCurrencySelect,
         setToCurrencySelect: setToCurrencySelect,
-        calculate: calculate
+        calculate: calculate,
+        getHistoricalData: getHistoricalData,
+        backToLatest: backToLatest
         
 
     })
