@@ -3,8 +3,6 @@
 (function () {
     "use strict";
 
-    var dataTransferManager = Windows.ApplicationModel.DataTransfer.DataTransferManager.getForCurrentView();
-    var tempFolder = Windows.Storage.ApplicationData.current.temporaryFolder;
     var oneMonthBackData;
     var currentElement;
 
@@ -30,7 +28,12 @@
         init: function (element, options) {
             var optionsForRequest = {};
             if (options.indexInRatesList != undefined) {
-                this.element = Currency.ViewModels.currencies.getAt(options.indexInRatesList);
+                if (options.referer != undefined && options.referer == "search") {
+                    this.element = Currency.Search.ViewModels.resultList.getAt(options.indexInRatesList);
+                } else {
+                    this.element = Currency.ViewModels.currencies.getAt(options.indexInRatesList);
+                }
+
                 optionsForRequest.currency = this.element.currency;
             }
             else {
