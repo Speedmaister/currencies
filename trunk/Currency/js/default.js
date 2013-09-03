@@ -34,6 +34,8 @@
                 var toCyrrencySelect = document.getElementById("toCurrencySelect");
                 var filterBtn = document.getElementById("filter").winControl;
                 var filterMenu = document.getElementById("filterMenu").winControl;
+                var calculateBtn = document.getElementById("calculateBtn");
+                var calcAmount = document.getElementById("calcAmount");
 
                 Currency.DefaultCodeBehind.setBaseCurrencySelect(baseCurrencySelect);
                 Currency.DefaultCodeBehind.setFromCurrencySelect(fromCyrrencySelect);
@@ -53,12 +55,20 @@
                     historicalDataMenu.show();
                 });
 
+                calcBody.addEventListener("aftershow", function () {
+                    calcAmount.focus();
+                });
+
                 calcBtn.addEventListener("click", function () {
                     calcBody.show();
                 });
 
                 filterBtn.addEventListener("click", function () {
                     filterMenu.show();
+                });
+
+                calculateBtn.addEventListener("click", function () {
+                    Currency.DefaultCodeBehind.calculate(calcAmount, fromCyrrencySelect, toCyrrencySelect);
                 });
 
                 if (nav.location) {

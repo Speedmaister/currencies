@@ -43,12 +43,12 @@
     <div id="calcBody" data-win-control="WinJS.UI.Flyout" data-win-options="{anchor:'calc'}">
         <div id="calcContainer">
             <h3>Amount</h3>
-            <input type="number" class="bodyCalc" />
+            <input id="calcAmount" type="number" class="bodyCalc" />
             <h3>From</h3>
             <select id="fromCurrencySelect" class="bodyCalc"></select>
             <h3>To</h3>
             <select id="toCurrencySelect" class="bodyCalc"></select>
-            <button class="currencyButton">Calculate</button>
+            <button id="calculateBtn" class="currencyButton bodyCalc">Calculate</button>
         </div>
     </div>
     <div id="filterMenu" data-win-control="WinJS.UI.Menu" data-win-options="{anchor:'filter'}">

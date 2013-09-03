@@ -1,4 +1,5 @@
 ﻿/// <reference path="default.js" />
+/// <reference path="currencyAction.js" />
 (function () {
     var baseCurrencySelect;
     var fromCurrencySelect;
@@ -28,13 +29,23 @@
         return toCurrencySelect;
     }
 
+    var calculate = function (input, from, to) {
+        var amount = input.value;
+        var currencyFrom = from.options[from.selectedIndex].value;
+        var currencyTo = to.options[to.selectedIndex].value;
+        var downloadedRates = Currency.ViewModels.getdownloadedRates();
+        var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
+        input.value = currencyManipulator.exchange(amount, currencyFrom, currencyTo).toFixed(4) + " " + currencyTo;
+    }
+
     WinJS.Namespace.define("Currency.DefaultCodeBehind", {
         setBaseCurrencySelect: setBaseCurrencySelect,
         getBaseCurrencySelect: getBaseCurrencySelect,
         setFromCurrencySelect: setFromCurrencySelect,
         getFromCurrencySelect: getFromCurrencySelect,
         getToCurrencySelect: getToCurrencySelect,
-        setToCurrencySelect: setToCurrencySelect
+        setToCurrencySelect: setToCurrencySelect,
+        calculate: calculate
         
 
     })
