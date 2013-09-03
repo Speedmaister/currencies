@@ -2,6 +2,7 @@
 (function () {
     var searchedList = Currency.ViewModels.currencies;
     var searchQuery;
+    var queriesJoines = WinJS.Binding.as({ string: "" });
 
     var filteredComputers = searchedList.createFiltered(filter);
 
@@ -10,11 +11,11 @@
             var isMatched = false;
             var i;
             for (i = 0; i < searchQuery.length; i++) {
-                var queryWord = searchQuery[i];
-                if (isContained(item.currency, word) > -1
-                    || isContained(item.rate, word)
-                    || isContained(item.invert, word)
-                    || isContained(item.date, word)) {
+                var queryWord = searchQuery[i].toLowerCase();
+                if (isContained(item.currency, queryWord)
+                    || isContained(item.rate, queryWord)
+                    || isContained(item.invert, queryWord)
+                    || isContained(item.date, queryWord)) {
                     isMatched = true;
                     break;
                 }
@@ -27,21 +28,21 @@
     }
 
     function isContained(property, word) {
-        return property.toString().indexOf(word) > -1;
+        var isContained = property.toString().toLowerCase().indexOf(word) > -1;
+        return isContained;
     }
 
     function submitSearchText(queryText) {
         searchQuery = queryText.split(/[\s,()?!+]/i);
-        searchResultList.notifyReload();
+        queriesJoines.string = searchQuery.join(", ");
+        searchedList.notifyReload();
     }
 
     WinJS.Namespace.define("Currency.Search.ViewModels", {
         submitSearchText: submitSearchText,
         currencies: searchedList,
         resultList: filteredComputers,
-        filter:filter
+        filter: filter,
+        searchQuery: queriesJoines
     });
 })();
-
-/*WinJS.Binding.processAll(element, ViewModels);
-            Currency.Search.ViewModels.submitSearchText(options.queryText);*/
