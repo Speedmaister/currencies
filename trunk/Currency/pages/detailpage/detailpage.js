@@ -5,13 +5,21 @@
 (function () {
     "use strict";
 
+    var dataTransferManager = Windows.ApplicationModel.DataTransfer.DataTransferManager.getForCurrentView();
+    var tempFolder = Windows.Storage.ApplicationData.current.temporaryFolder;
+    var oneMonthBackData;
+    var currentElement;
+
     WinJS.UI.Pages.define("/pages/detailpage/detailpage.html", {
         ready: function (element, options) {
-            var element = this.element;
+            currentElement = this.element;
             this.historicalData.then(function (data) {
-                Currency.DetailCodeBehind.drawData(data, element);
+                oneMonthBackData = data;
+                Currency.DetailCodeBehind.drawData(data, currentElement);
                 var title = document.getElementsByClassName("pagetitle")[0];
-                Currency.DetailCodeBehind.ViewModels.getCurrencyFullName(element, title);
+                Currency.DetailCodeBehind.ViewModels.getCurrencyFullName(currentElement, title);
+
+                dataTransferManager.addEventListener("datarequested", shareFileHandler);
             }, function (error) {
                 console.log(error);
             });
@@ -59,6 +67,40 @@
             }
         }
     });
+
+    function shareFileHandler(event) {
+        var dataRequest = event.request;
+
+        dataRequest.data.properties.title = "Details for " + currentElement.currency;
+        dataRequest.data.properties.description = "Get details for one month period of the currency.";
+            
+        dataRequest.data.properties.fileTypes.replaceAll([".csv"]);
+            
+        var deferral = dataRequest.getDeferral();
+        var file = tempFolder.createFileAsync("details-rates.csv", Windows.Storage.CreationCollisionOption.replaceExisting)
+            .then(function (createdFile) {
+                Windows.Storage.FileIO.writeTextAsync(createdFile, getRates()).then(function () {
+                    dataRequest.data.setStorageItems([createdFile]);
+                    deferral.complete();
+                }, function (error) {
+                    deferral.complete();
+                });
+            }, function (error) {
+                deferral.complete();
+            });
+    }
+
+    function getRates() {
+        var dataArray = JSON.parse(oneMonthBackData.responseText);
+        var svcStringData = "Date,Rate\n";
+        var i;
+        for (var date in dataArray) {
+            svcStringData = svcStringData + Currency.DetailCodeBehind.formateReceivedDate(date)
+                + "," + Currency.DetailCodeBehind.formatRate(dataArray[date]) + "\n";
+        }
+
+        return svcStringData;
+    }
 
     function formatDate(date) {
         var dateStr = padStr(date.getFullYear()) + "-" +
