@@ -35,7 +35,11 @@
         var currencyTo = to.options[to.selectedIndex].value;
         var downloadedRates = Currency.ViewModels.getdownloadedRates();
         var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
+        var roamingSettings = Windows.Storage.ApplicationData.current.roamingSettings;
+
         input.value = currencyManipulator.exchange(amount, currencyFrom, currencyTo).toFixed(4) + " " + currencyTo;
+        roamingSettings.values['calculatorFrom'] = from.selectedIndex;
+        roamingSettings.values['calculatorTo'] = to.selectedIndex;
     }
 
     WinJS.Namespace.define("Currency.DefaultCodeBehind", {
