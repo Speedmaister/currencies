@@ -111,6 +111,8 @@
 
     WinJS.Namespace.define("Currency.DetailCodeBehind", {
         getMonthBackData: getMonthBackData,
-        drawData: drawData
+        drawData: drawData,
+        formateReceivedDate: formateReceivedDate,
+        formatRate: formatRate
     })
 }());
