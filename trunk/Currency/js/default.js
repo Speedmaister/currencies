@@ -39,6 +39,9 @@
                 var calculateBtn = document.getElementById("calculateBtn");
                 var calcAmount = document.getElementById("calcAmount");
                 var appBar = document.getElementById("appbar").winControl;
+                var historicalDataBtn = document.getElementById("getHistoricalData");
+                var historicalDate = document.getElementById("historicalDate").winControl;
+                var latestRatesBtn = document.getElementById("latest").winControl;
 
                 Currency.DefaultCodeBehind.setBaseCurrencySelect(baseCurrencySelect);
                 Currency.DefaultCodeBehind.setFromCurrencySelect(fromCyrrencySelect);
@@ -84,6 +87,19 @@
 
                 calculateBtn.addEventListener("click", function () {
                     Currency.DefaultCodeBehind.calculate(calcAmount, fromCyrrencySelect, toCyrrencySelect);
+                });
+
+                historicalDataBtn.addEventListener("click", function () {
+                    Currency.DefaultCodeBehind.getHistoricalData(historicalDate.current);
+                    historicalDataMenu.hide();
+                    latestRatesBtn.disabled = false;
+                    historicalBtn.disabled = true;
+                });
+
+                latestRatesBtn.addEventListener("click", function () {
+                    Currency.DefaultCodeBehind.backToLatest();
+                    latestRatesBtn.disabled = true;
+                    historicalBtn.disabled = false;
                 });
 
                 if (nav.location) {

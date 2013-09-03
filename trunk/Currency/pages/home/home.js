@@ -20,6 +20,8 @@
             document.getElementById("baseCurrency").style.display = "";
             document.getElementById("historical").style.display = "";
             document.getElementById("filter").style.display = "";
+            document.getElementById("latest").style.display = "";
+
             var currentDate = Currency.ViewModels.getCurrentDate();
             if (currentDate) {
                 Currency.HomeCodeBehind.setCurrentDate(currentDate);

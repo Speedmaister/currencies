@@ -19,6 +19,7 @@
             document.getElementById("baseCurrency").style.display = "none";
             document.getElementById("historical").style.display = "none";
             document.getElementById("filter").style.display = "none";
+            document.getElementById("latest").style.display = "none";
         },
         init: function (element, options) {
             var optionsForRequest = {};
@@ -32,8 +33,8 @@
             }
 
             optionsForRequest.base = Currency.ViewModels.getGlobalSettings().baseCurrency;
-            var from = new Date();
-            optionsForRequest.till = formatDate(new Date());
+            var from = Currency.ViewModels.getCurrentDate();
+            optionsForRequest.till = formatDate(Currency.ViewModels.getCurrentDate());
             var currentMonth = from.getMonth();
             from.setMonth(currentMonth - 1);
             optionsForRequest.from = formatDate(from);
