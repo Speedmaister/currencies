@@ -23,14 +23,14 @@
     var searchPageURI = "/pages/search/search.html";
 
     ui.Pages.define(searchPageURI, {
-        _filters: [],
+        _filters: [Currency.Search.ViewModels.filter],
         _lastSearch: "",
 
         // This function is called whenever a user navigates to this page. It
         // populates the page elements with the app's data.
         ready: function (element, options) {
             var listView = element.querySelector(".resultslist").winControl;
-            listView.itemTemplate = element.querySelector(".itemtemplate");
+            listView.itemTemplate = element.querySelector("currency-template");
             listView.oniteminvoked = this._itemInvoked;
             this._handleQuery(element, options);
             listView.element.focus();
@@ -117,13 +117,17 @@
                 listView.layout = new ui.GridLayout();
 
                 // TODO: Change "App Name" to the name of your app.
-                document.querySelector(".titlearea .pagetitle").textContent = "App Name";
+                document.querySelector(".titlearea .pagetitle").textContent = "Currencies";
                 document.querySelector(".titlearea .pagesubtitle").textContent = "Results for “" + this._lastSearch + '”';
             }
         },
 
         _itemInvoked: function (args) {
             args.detail.itemPromise.done(function itemInvoked(item) {
+                WinJS.Navigation.navigate("/pages/detailpage/detailpage.html", {
+                    indexInRatesList: invokeEvent.detail.itemIndex,
+                    item:item
+                });
                 // TODO: Navigate to the item that was invoked.
             });
         },

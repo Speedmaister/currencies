@@ -343,6 +343,7 @@
     <Content Include="pages\search\search.css" />
     <Content Include="pages\search\search.html" />
     <Content Include="pages\search\search.js" />
+    <Content Include="pages\search\searchViewModel.js" />
     <None Include="Currency_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
