@@ -33,9 +33,22 @@
     }
 
     function submitSearchText(queryText) {
-        searchQuery = queryText.split(/[\s,()?!+]/i);
+        searchQuery = queryText.split(/[\s,\(\)\?!\+]/i);
+        searchQuery = removeEmptyEntities(searchQuery);
         queriesJoines.string = searchQuery.join(", ");
         searchedList.notifyReload();
+    }
+
+    function removeEmptyEntities(stringArray) {
+        var i;
+        var cleanedArray = [];
+        for (i = 0; i < stringArray.length; i++) {
+            if (stringArray[i] !== "") {
+                cleanedArray.push(stringArray[i]);
+            }
+        }
+
+        return cleanedArray;
     }
 
     WinJS.Namespace.define("Currency.Search.ViewModels", {
