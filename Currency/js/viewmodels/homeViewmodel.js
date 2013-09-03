@@ -41,6 +41,11 @@
         });
     }
 
+    var showFiltered = function () {
+        var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
+        bindRatesDto(currencyManipulator);
+    }
+
     var getCurrenciesNames = function () {
         if (!currenciesNames) {
             currenciesNames = Currency.Data.getCurrencies();
@@ -161,6 +166,7 @@
         getdownloadedRates: getdownloadedRates,
         getCurrentDate: getCurrentDate,
         loadHistorical: loadHistorical,
-        backToLatest: backToLatest
+        backToLatest: backToLatest,
+        showFiltered: showFiltered
     });
 })();

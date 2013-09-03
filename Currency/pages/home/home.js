@@ -27,6 +27,8 @@
 
             fiterShowSelected.addEventListener("click", function () {
                 var selection = listView.selection.getIndices();
+                Currency.HomeCodeBehind.filterSelected(selection);
+
             });
 
             document.getElementById("baseCurrency").style.display = "";

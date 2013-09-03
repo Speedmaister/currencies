@@ -1,4 +1,4 @@
-﻿/// <reference path="../../js/viewmodels.js" />
+﻿/// <reference path="../../js/viewmodels/homeViewmodel.js" />
 (function () {
     var currencies;
 
@@ -86,6 +86,23 @@
         currentDateField.innerText = date.toDateString();
     }
 
+    var filterSelected = function (selection) {
+        var newVisible = [];
+        var currenciesList = Currency.ViewModels.currencies;
+        for (var i = 0; i < selection.length; i++) {
+            var item = currenciesList.getAt(selection[i]);
+            newVisible.push(item.currency);
+        }
+
+        var settings = Currency.ViewModels.getGlobalSettings();
+        if (settings) {
+            settings.visible = newVisible;
+            Currency.Data.setSettings(settings);
+        }
+
+        Currency.ViewModels.showFiltered();
+    }
+
     WinJS.Utilities.markSupportedForProcessing(goToCurrencyDetailsPage);
 
     WinJS.Namespace.define("Currency.HomeCodeBehind", {
@@ -97,6 +114,7 @@
         setLongTitle: setLongTitle,
         setShortTitle: setShortTitle,
         populateCurrencySelect: populateCurrencySelect,
-        setCurrentDate: setCurrentDate
+        setCurrentDate: setCurrentDate,
+        filterSelected: filterSelected
     })
 }());
