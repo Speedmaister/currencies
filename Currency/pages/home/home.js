@@ -21,6 +21,14 @@
                 Currency.HomeCodeBehind.populateCurrencySelect(toCurrencySelect);
             });
 
+            var filerShowAll = document.getElementById("filterShowAll").winControl;
+            var fiterShowSelected = document.getElementById("filterShowSelected").winControl;
+            var listView = document.getElementById("rates-list").winControl;
+
+            fiterShowSelected.addEventListener("click", function () {
+                var selection = listView.selection.getIndices();
+            });
+
             document.getElementById("baseCurrency").style.display = "";
             document.getElementById("historical").style.display = "";
             document.getElementById("filter").style.display = "";

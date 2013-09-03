@@ -42,6 +42,7 @@
                 var historicalDataBtn = document.getElementById("getHistoricalData");
                 var historicalDate = document.getElementById("historicalDate").winControl;
                 var latestRatesBtn = document.getElementById("latest").winControl;
+                
 
                 Currency.DefaultCodeBehind.setBaseCurrencySelect(baseCurrencySelect);
                 Currency.DefaultCodeBehind.setFromCurrencySelect(fromCyrrencySelect);
@@ -101,6 +102,8 @@
                     latestRatesBtn.disabled = true;
                     historicalBtn.disabled = false;
                 });
+
+                
 
                 if (nav.location) {
                     nav.history.current.initialPlaceholder = true;
