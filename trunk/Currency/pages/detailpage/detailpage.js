@@ -18,6 +18,7 @@
 
             document.getElementById("baseCurrency").style.display = "none";
             document.getElementById("historical").style.display = "none";
+            document.getElementById("filter").style.display = "none";
         },
         init: function (element, options) {
             this.element = Currency.ViewModels.currencies.getAt(options.indexInRatesList);
@@ -31,15 +32,23 @@
             optionsForRequest.from = formatDate(from);
 
             this.historicalData = Currency.DetailCodeBehind.getMonthBackData(optionsForRequest);
+            this.updateLayout(element, Windows.UI.ViewManagement.ApplicationView.value, null);
         },
         unload: function () {
             // TODO: Respond to navigations away from this page.
         },
 
         updateLayout: function (element, viewState, lastViewState) {
-            /// <param name="element" domElement="true" />
+            var appbar = document.getElementById("appbar").winControl;
 
-            // TODO: Respond to changes in viewState.
+            if (viewState === Windows.UI.ViewManagement.ApplicationViewState.snapped) {
+                appbar.disabled = true;
+            }
+            else {
+                if (appbar) {
+                    appbar.disabled = false;
+                }
+            }
         }
     });
 

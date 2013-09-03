@@ -27,8 +27,17 @@
                 var historicalBtn = document.getElementById("historical").winControl;
                 var baseCurrencyMenu = document.getElementById("baseCurrencyMenu").winControl;
                 var baseCurrencySelect = document.getElementById("baseCurrencySelect");
+                var historicalDataMenu = document.getElementById("historicalDataMenu").winControl; 
+                var calcBtn = document.getElementById("calc").winControl;
+                var calcBody = document.getElementById("calcBody").winControl;
+                var fromCyrrencySelect = document.getElementById("fromCurrencySelect");
+                var toCyrrencySelect = document.getElementById("toCurrencySelect");
+                var filterBtn = document.getElementById("filter").winControl;
+                var filterMenu = document.getElementById("filterMenu").winControl;
 
                 Currency.DefaultCodeBehind.setBaseCurrencySelect(baseCurrencySelect);
+                Currency.DefaultCodeBehind.setFromCurrencySelect(fromCyrrencySelect);
+                Currency.DefaultCodeBehind.setToCurrencySelect(toCyrrencySelect);
 
                 baseCurrencyBtn.addEventListener("click", function () {
                     baseCurrencyMenu.show();
@@ -38,6 +47,18 @@
                     baseCurrencyMenu.hide();
                     //nav.navigate(Application.navigator.home);
                     Currency.ViewModels.changeBaseCurrency(event);
+                });
+
+                historicalBtn.addEventListener("click", function () {
+                    historicalDataMenu.show();
+                });
+
+                calcBtn.addEventListener("click", function () {
+                    calcBody.show();
+                });
+
+                filterBtn.addEventListener("click", function () {
+                    filterMenu.show();
                 });
 
                 if (nav.location) {
