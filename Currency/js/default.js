@@ -7,8 +7,10 @@
     WinJS.Binding.optimizeBindingReferences = true;
 
     var app = WinJS.Application;
+    var appModel = Windows.ApplicationModel;
     var activation = Windows.ApplicationModel.Activation;
     var nav = WinJS.Navigation;
+    var searchPane = appModel.Search.SearchPane.getForCurrentView();
 
     app.addEventListener("activated", function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
@@ -36,6 +38,7 @@
                 var filterMenu = document.getElementById("filterMenu").winControl;
                 var calculateBtn = document.getElementById("calculateBtn");
                 var calcAmount = document.getElementById("calcAmount");
+                var appBar = document.getElementById("appbar").winControl;
 
                 Currency.DefaultCodeBehind.setBaseCurrencySelect(baseCurrencySelect);
                 Currency.DefaultCodeBehind.setFromCurrencySelect(fromCyrrencySelect);
@@ -55,8 +58,20 @@
                     historicalDataMenu.show();
                 });
 
+                calcAmount.addEventListener("focus", function (event) {
+                    this.select();
+                });
+
                 calcBody.addEventListener("aftershow", function () {
                     calcAmount.focus();
+                });
+
+                appBar.addEventListener("aftershow", function () {
+                    searchPane.showOnKeyboardInput = false;
+                });
+
+                appBar.addEventListener("afterhide", function () {
+                    searchPane.showOnKeyboardInput = true;
                 });
 
                 calcBtn.addEventListener("click", function () {
