@@ -329,12 +329,13 @@
     <Content Include="js\defaultSettings.js" />
     <Content Include="js\models\homeModel.js" />
     <Content Include="js\navigator.js" />
+    <Content Include="js\viewmodels\detailViewModel.js" />
     <Content Include="js\viewmodels\homeViewmodel.js" />
+    <Content Include="js\viewmodels\searchViewModel.js" />
     <Content Include="pages\detailpage\detailpage.css" />
     <Content Include="pages\detailpage\detailpage.html" />
     <Content Include="pages\detailpage\detailpage.js" />
     <Content Include="pages\detailpage\detailpageCodeBehind.js" />
-    <Content Include="pages\detailpage\detailViewModel.js" />
     <Content Include="pages\home\home.css" />
     <Content Include="pages\home\home.html" />
     <Content Include="pages\home\home.js" />
@@ -343,7 +344,6 @@
     <Content Include="pages\search\search.css" />
     <Content Include="pages\search\search.html" />
     <Content Include="pages\search\search.js" />
-    <Content Include="pages\search\searchViewModel.js" />
     <None Include="Currency_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

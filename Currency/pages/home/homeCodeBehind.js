@@ -3,10 +3,18 @@
     var currencies;
 
     var goToCurrencyDetailsPage = function (invokeEvent) {
-        WinJS.Navigation.navigate("/pages/detailpage/detailpage.html", {
-            indexInRatesList: invokeEvent.detail.itemIndex,
-            item:item
-        });
+        if (WinJS.Navigation.location == "/pages/search/search.html") {
+            WinJS.Navigation.navigate("/pages/detailpage/detailpage.html", {
+                indexInRatesList: invokeEvent.detail.itemIndex,
+                item: item,
+                referer: "search"
+            });
+        } else {
+            WinJS.Navigation.navigate("/pages/detailpage/detailpage.html", {
+                indexInRatesList: invokeEvent.detail.itemIndex,
+                item: item
+            });
+        }
     }
 
     var setTitle = function (kind) {
