@@ -9,12 +9,17 @@
                 Currency.HomeCodeBehind.callLoadLatestRates();
                 Currency.HomeCodeBehind.setLongTitle();
                 var baseCurrencySelect = Currency.DefaultCodeBehind.getBaseCurrencySelect();
+                var fromCurrencySelect = Currency.DefaultCodeBehind.getFromCurrencySelect();
+                var toCurrencySelect = Currency.DefaultCodeBehind.getToCurrencySelect();
                 
                 Currency.HomeCodeBehind.populateCurrencySelect(baseCurrencySelect);
+                Currency.HomeCodeBehind.populateCurrencySelect(fromCurrencySelect);
+                Currency.HomeCodeBehind.populateCurrencySelect(toCurrencySelect);
             });
 
             document.getElementById("baseCurrency").style.display = "";
             document.getElementById("historical").style.display = "";
+            document.getElementById("filter").style.display = "";
             var currentDate = Currency.ViewModels.getCurrentDate();
             if (currentDate) {
                 Currency.HomeCodeBehind.setCurrentDate(currentDate);

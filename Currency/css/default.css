@@ -85,3 +85,19 @@ option:checked, select:focus::-ms-value {
     background-color: #DAA520;
     color: rgb(255, 255, 255);
 }
+
+.currencyButton {
+    background-color: #DAA520 !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+.bodyCalc {
+    display: block;
+    width: 100%;
+}
+
+#calcContainer {
+    width: 280px;
+    padding: 0px;
+    margin: 0px;
+}

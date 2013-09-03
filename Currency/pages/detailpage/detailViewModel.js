@@ -14,6 +14,7 @@
         for (i = 0; i < collectionOfDtos.length; i++) {
             collectionOfDtos[i].rate = currencyAction.exchange(currentCurrency.amount, currentCurrency.currency, collectionOfDtos[i].currency).toFixed(4);
             collectionOfDtos[i].invert = (currentCurrency.amount / collectionOfDtos[i].rate).toFixed(4);
+            collectionOfDtos[i].amount = currentCurrency.amount;
             bindedDtos.push(WinJS.Binding.as(collectionOfDtos[i]));
         }
     }
