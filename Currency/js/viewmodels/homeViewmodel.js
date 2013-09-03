@@ -40,6 +40,8 @@
             var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
             bindRatesDto(currencyManipulator);
             Currency.HomeCodeBehind.setCurrentDate(new Date(downloadedRates.timestamp * 1000));
+        }, function (error) {
+            Currency.Utilities.showMessage("No internet connection.");
         });
     }
 
@@ -51,6 +53,8 @@
     var getCurrenciesNames = function () {
         if (!currenciesNames) {
             currenciesNames = Currency.Data.getCurrencies();
+                //.done(function (success) { }, function (error) {
+            //Currency.Utilities.showMessage("No internet connection.");});
         }
 
         return currenciesNames;
