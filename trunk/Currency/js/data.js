@@ -103,7 +103,7 @@
         globalSettings = newSettings;
         roamingFolder.createFileAsync("settings.json",
             Windows.Storage.CreationCollisionOption.replaceExisting).then(function (file) {
-                Windows.Storage.FileIO.writeTextAsync(file, JSON.stringify(globalSettings));
+                Windows.Storage.FileIO.writeTextAsync(file, JSON.stringify(globalSettings)).done(null, function () { });
             });
     }
 

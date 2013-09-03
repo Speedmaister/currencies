@@ -10,22 +10,22 @@
     var nav = WinJS.Navigation;
     var searchPane = appModel.Search.SearchPane.getForCurrentView();
 
-    //app.onerror = function (customEventObject) {
-    //    var errorMessage = '';
-    //    var errorName = '';
-    //    if (customEventObject.detail.error) {
-    //        errorMessage = customEventObject.detail.error.message;
-    //        errorName = customEventObject.detail.error.name;
-    //    }
-    //    else {
-    //        errorMessage = customEventObject.detail.exception.message;
-    //        errorName = 'Exception';
-    //    }
-    //    var optionsObject = { errName: errorName, errMsg: errorMessage };
-    //    Currency.Utilities.showMessage(errorMessage);
-    //    //nav.navigate("/pages/error/error.html", optionsObject);
-    //    return true;
-    //}
+    app.onerror = function (customEventObject) {
+        var errorMessage = '';
+        var errorName = '';
+        if (customEventObject.detail.error) {
+            errorMessage = customEventObject.detail.error.message;
+            errorName = customEventObject.detail.error.name;
+        }
+        else {
+            errorMessage = customEventObject.detail.exception.message;
+            errorName = 'Exception';
+        }
+        var optionsObject = { errName: errorName, errMsg: errorMessage };
+        Currency.Utilities.showMessage(errorMessage);
+        //nav.navigate("/pages/error/error.html", optionsObject);
+        return true;
+    }
 
     app.addEventListener("activated", function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
