@@ -27,7 +27,12 @@
 
             filterShowSelected.addEventListener("click", function () {
                 var selection = listView.selection.getIndices();
-                Currency.HomeCodeBehind.filterSelected(selection);
+                if (selection.length > 0) {
+                    Currency.HomeCodeBehind.filterSelected(selection);
+                } else {
+                    Currency.Utilities.showMessage("No currencies are selected!");
+                }
+               
             });
 
             filterShowAll.addEventListener("click", function () {
