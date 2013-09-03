@@ -26,11 +26,13 @@
             var listView = document.getElementById("rates-list").winControl;
 
             filterShowSelected.addEventListener("click", function () {
-                var selection = listView.selection.getIndices();
-                if (selection.length > 0) {
-                    Currency.HomeCodeBehind.filterSelected(selection);
-                } else {
-                    Currency.Utilities.showMessage("No currencies are selected!");
+                if (listView.selection._selected) {
+                    var selection = listView.selection.getIndices();
+                    if (selection.length > 0) {
+                        Currency.HomeCodeBehind.filterSelected(selection);
+                    } else {
+                        Currency.Utilities.showMessage("No currencies are selected!");
+                    }
                 }
                
             });
