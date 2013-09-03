@@ -13,7 +13,7 @@
     app.addEventListener("activated", function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
-               
+
             } else {
                 // TODO: This application has been reactivated from suspension.
                 // Restore application state here.
@@ -28,7 +28,7 @@
                 var historicalBtn = document.getElementById("historical").winControl;
                 var baseCurrencyMenu = document.getElementById("baseCurrencyMenu").winControl;
                 var baseCurrencySelect = document.getElementById("baseCurrencySelect");
-                var historicalDataMenu = document.getElementById("historicalDataMenu").winControl; 
+                var historicalDataMenu = document.getElementById("historicalDataMenu").winControl;
                 var calcBtn = document.getElementById("calc").winControl;
                 var calcBody = document.getElementById("calcBody").winControl;
                 var fromCyrrencySelect = document.getElementById("fromCurrencySelect");
@@ -41,7 +41,8 @@
                 var historicalDataBtn = document.getElementById("getHistoricalData");
                 var historicalDate = document.getElementById("historicalDate").winControl;
                 var latestRatesBtn = document.getElementById("latest").winControl;
-                
+                var exportToFileBtn = document.getElementById("file-exporter").winControl;
+
 
                 Currency.DefaultCodeBehind.setBaseCurrencySelect(baseCurrencySelect);
                 Currency.DefaultCodeBehind.setFromCurrencySelect(fromCyrrencySelect);
@@ -103,7 +104,9 @@
                     historicalBtn.disabled = false;
                 });
 
-                
+                exportToFileBtn.addEventListener("click", function () {
+                    Currency.DefaultCodeBehind.saveDataToFile();
+                });
 
                 if (nav.location) {
                     nav.history.current.initialPlaceholder = true;

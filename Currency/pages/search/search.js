@@ -19,6 +19,12 @@
         ready: function (element, options) {
             WinJS.Binding.processAll(element, Currency.Search.ViewModels);
             Currency.Search.ViewModels.submitSearchText(options.queryText);
+
+            document.getElementById("baseCurrency").style.display = "none";
+            document.getElementById("historical").style.display = "none";
+            document.getElementById("filter").style.display = "none";
+            document.getElementById("latest").style.display = "none";
+            document.getElementById("file-exporter").style.display = "none";
         }
     });
  

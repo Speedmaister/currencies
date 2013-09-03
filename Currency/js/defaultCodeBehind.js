@@ -60,7 +60,21 @@
         return isSet;
     }
 
+    var saveDataToFile = function () {
+        var dataToString = Currency.ViewModels.getData();
+
+        var savePicker = new Windows.Storage.Pickers.FileSavePicker();
+        savePicker.defaultFileExtension = ".csv"
+        savePicker.fileTypeChoices.insert("Comma Seperated Value", [".csv"])
+        savePicker.suggestedFileName = "New Rates Table";
+
+        savePicker.pickSaveFileAsync().then(function (file) {
+            Windows.Storage.FileIO.writeTextAsync(file, dataToString);
+        });
+    }
+
     WinJS.Namespace.define("Currency.DefaultCodeBehind", {
+        saveDataToFile: saveDataToFile,
         setBaseCurrencySelect: setBaseCurrencySelect,
         getBaseCurrencySelect: getBaseCurrencySelect,
         setFromCurrencySelect: setFromCurrencySelect,
