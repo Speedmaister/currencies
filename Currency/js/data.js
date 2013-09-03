@@ -40,6 +40,7 @@
 
         globalSettings = defaultSettings.settings;
         globalSettings.visible = visible;
+        globalSettings.allCurrencies = visible;
 
         clientInfo.getData().then(function (data) {
             var clientData = JSON.parse(data.responseText);
