@@ -3,14 +3,14 @@
 (function () {
     "use strict";
 
-    var oneMonthBackData;
+    //var oneMonthBackData;
     var currentElement;
 
     WinJS.UI.Pages.define("/pages/detailpage/detailpage.html", {
         ready: function (element, options) {
             currentElement = this.element;
             this.historicalData.then(function (data) {
-                oneMonthBackData = data;
+                //oneMonthBackData = data;
                 Currency.DetailCodeBehind.drawData(data, currentElement);
                 var title = document.getElementsByClassName("pagetitle")[0];
                 Currency.DetailCodeBehind.ViewModels.getCurrencyFullName(currentElement, title);
@@ -43,7 +43,7 @@
 
             optionsForRequest.base = Currency.ViewModels.getGlobalSettings().baseCurrency;
             var from = Currency.ViewModels.getCurrentDate();
-            optionsForRequest.till = Currency.DetailCodeBehind.formatDate(Currency.ViewModels.getCurrentDate());
+            optionsForRequest.till = Currency.DetailCodeBehind.formatDate(new Date(Currency.ViewModels.getCurrentDate()));
             var currentMonth = from.getMonth();
             from.setMonth(currentMonth - 1);
             optionsForRequest.from = Currency.DetailCodeBehind.formatDate(from);

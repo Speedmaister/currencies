@@ -1,0 +1,48 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+       <title>Preferences</title>
+        <link href="settings.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <div data-win-control="WinJS.UI.SettingsFlyout" aria-label="Preferences Settings flyout" 
+             data-win-options="{settingsCommandId:'preferences', width:'narrow'}">
+            <div class="win-ui-dark win-header" style="background-color:#0887A7"> 
+                <button type="button" onclick="WinJS.UI.SettingsFlyout.show()" class="win-backbutton"></button>
+                <div class="win-label">Preferences</div>
+                <img src="/images/smalllogo.png" style="position: absolute; right: 40px;"/>
+            </div>
+            <div class="win-content">
+                <div class="win-settings-section">
+                    <h3>Preferences</h3>
+                    <div id="preferencesDiv">
+                        <h4>My Currency</h4>
+                        <select class="settingsUserContent">
+
+                        </select>
+                        <h4>Cross Rate List</h4>
+                        <p>
+                            Currencies from this list will be presented on each detail page, 
+                            showing cross rate between them selves and currency for which detailed page is shown
+                        </p>
+                        <select class="settingsUserContent">
+
+                        </select>
+                        <button>Add to list</button>
+                        <button>Delete selected</button>
+                        <div id="preferences-list" data-win-control="WinJS.UI.ListView" data-win-options="{
+                            itemTemplate:select('#preferences-template'),
+                            itemDataSource:Currency.ViewModels.currencies.dataSource,
+                            layout:{
+                                        type: WinJS.UI.ListLayout
+                                    }
+                            }">
+                        </div> 
+                        <button>Save Preferences</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

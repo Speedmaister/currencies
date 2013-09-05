@@ -125,6 +125,22 @@
                     Currency.DefaultCodeBehind.saveDataToFile();
                 });
 
+                WinJS.Application.onsettings = function (e) {
+                    e.detail.applicationcommands = {
+                        "privacyPolicy": {
+                            title: "Privacy Policy",
+                            href: "/pages/settings/privacyPolicy.html"
+                        },
+
+                        "preferences": {
+                            title: "Preferences",
+                            href: "/pages/settings/preferences.html"
+                        }
+                    };
+
+                    WinJS.UI.SettingsFlyout.populateSettings(e);
+                };
+
                 if (nav.location) {
                     nav.history.current.initialPlaceholder = true;
                     return nav.navigate(nav.location, nav.state);

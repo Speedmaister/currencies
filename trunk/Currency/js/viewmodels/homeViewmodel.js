@@ -30,7 +30,9 @@
             downloadedRates = JSON.parse(data.responseText);
             var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
             bindRatesDto(currencyManipulator);
-            Currency.HomeCodeBehind.setCurrentDate(new Date(downloadedRates.timestamp * 1000));
+            Currency.HomeCodeBehind.setCurrentDate(new Date(date.toDateString()));
+        }, function (error) {
+            Currency.Utilities.showMessage("No internet connection.");
         });
     }
 
@@ -102,7 +104,7 @@
         var neededCurrencyDTOs = currencyManipulator.getRatesTable(settings.allCurrencies);
         var selectedDtos = [];
         var i, j;
-        for (i = 0; i < 3; i++) {
+        for (i = 0; i < arrayOfCurrenciesCodes.length; i++) { //
             for (j = 0; j < neededCurrencyDTOs.length; j++) {
                 if (arrayOfCurrenciesCodes[i] === neededCurrencyDTOs[j].currency) {
                     selectedDtos.push(neededCurrencyDTOs[j]);
@@ -122,7 +124,7 @@
 
     var getCurrentDate = function () {
         if (currentDate) {
-            return currentDate;
+            return new Date(currentDate.toDateString());
         }
     }
 

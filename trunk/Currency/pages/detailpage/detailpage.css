@@ -17,6 +17,7 @@
 
 #currency-small-list-view {
     width: 280px;
+    height: 500px;
     -ms-grid-column: 5;
     -ms-grid-row: 1;
 }
@@ -151,6 +152,7 @@ canvas {
     #currency-small-list-view {
         -ms-grid-column: 1;
         -ms-grid-row: 1;
+        /*height: 100%;*/
     }
 
     canvas {

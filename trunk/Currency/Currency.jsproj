@@ -47,13 +47,20 @@
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <TargetPlatformVersion>8.0</TargetPlatformVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageCertificateKeyFile>Currency_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>Currency_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>694B3EA14E725184E51AED750EA997E44E6BD1A6</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="css\default.css" />
+    <Content Include="pages\settings\preferences.html" />
+    <Content Include="pages\settings\privacyPolicy.html" />
+    <Content Include="pages\settings\settings.css" />
+    <Content Include="pages\settings\settings.js" />
+    <None Include="Currency_StoreKey.pfx" />
     <Content Include="images\background.svg" />
     <Content Include="images\flags\ad.svg" />
     <Content Include="images\flags\ae.svg" />
@@ -332,6 +339,9 @@
     <Content Include="js\viewmodels\detailViewModel.js" />
     <Content Include="js\viewmodels\homeViewmodel.js" />
     <Content Include="js\viewmodels\searchViewModel.js" />
+    <None Include="Package.StoreAssociation.xml">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="pages\detailpage\detailpage.css" />
     <Content Include="pages\detailpage\detailpage.html" />
     <Content Include="pages\detailpage\detailpage.js" />
