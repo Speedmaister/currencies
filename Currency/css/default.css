@@ -82,6 +82,31 @@ body {
     background-color: #0887A7;
 }
 
+.win-selectioncheckmarkbackground {
+    color: #DAA520 !important;
+}
+
+/*::selection {
+    background-color: #DAA520 !important;
+}*/
+
+.win-selectionborder {
+    border-color: #DAA520 !important;
+    background-color: #DAA520 !important;
+    border-bottom-color: #DAA520 !important;
+    border-left-color: #DAA520 !important;
+    border-right-color: #DAA520 !important;
+    border-top-color: #DAA520 !important;
+    
+}
+
+:not(.win-selectionstylefilled).win-listview .win-selectioncheckmarkbackground {
+   border-bottom-color: transparent;
+   border-left-color: transparent;
+   border-right-color: #DAA520 !important;
+   border-top-color: #DAA520 !important;
+}
+
 .win-appbar {
     background-color: #DAA520;
 }
@@ -94,6 +119,7 @@ option:checked, select:focus::-ms-value {
 .currencyButton {
     background-color: #DAA520 !important;
     color: rgb(255, 255, 255) !important;
+    margin-left: auto;
 }
 
 .bodyCalc {

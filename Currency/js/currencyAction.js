@@ -73,5 +73,33 @@ WinJS.Namespace.define("Currency.Utilities", {
     showMessage: function (textMessage) {
         var msg = new Windows.UI.Popups.MessageDialog(textMessage);
         msg.showAsync().done();
+    },
+
+    errorReport: function (data) {
+        var msg = new Windows.UI.Popups.MessageDialog(
+            "An error has ocured. Please, press 'Send Report' to send us error report. This will help us deliver more stable software. No personal data will be sent.", 
+            "Something went wrong!");
+
+        msg.commands.append(new Windows.UI.Popups.UICommand(
+           "Send Report",
+           function () {
+               Currency.Data.sendErrorReport(data).then(function (data) {
+                   var d = data;//TODO: toast notification
+               }, function (error) {
+                   console.log(error.responseText);
+               });
+           }));
+        msg.commands.append(new Windows.UI.Popups.UICommand(
+            "Close",
+            function () { }));
+
+        // Set the command that will be invoked by default
+        msg.defaultCommandIndex = 0;
+
+        // Set the command to be invoked when escape is pressed
+        msg.cancelCommandIndex = 1;
+
+        // Show the message dialog
+        msg.showAsync();
     }
 });

@@ -56,6 +56,8 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="css\default.css" />
+    <Content Include="js\models\preferenceModel.js" />
+    <Content Include="js\viewmodels\settingsViewModel.js" />
     <Content Include="pages\settings\preferences.html" />
     <Content Include="pages\settings\privacyPolicy.html" />
     <Content Include="pages\settings\settings.css" />

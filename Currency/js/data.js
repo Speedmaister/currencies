@@ -111,6 +111,10 @@
         return requester.getData(options);
     }
 
+    function sendErrorReport(data) {
+        return requester.sendError(data);
+    }
+
     WinJS.Namespace.define("Currency.Data", {
         initSettings: initSettings,
         getLatestRates: getLatestRates,
@@ -118,6 +122,7 @@
         getCurrencies: getCurrencies,
         getSettings: getSettings,
         setSettings: setSettings,
-        getMonthBackData:getMonthBackData
+        getMonthBackData: getMonthBackData,
+        sendErrorReport: sendErrorReport
     });
 }());
