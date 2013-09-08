@@ -18,7 +18,8 @@
                 downloadedRates = JSON.parse(data.responseText);
                 var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
                 bindRatesDto(currencyManipulator);
-                Currency.HomeCodeBehind.setCurrentDate(new Date(downloadedRates.timestamp * 1000));
+                var currentDate = new Date(downloadedRates.timestamp * 1000);
+                Currency.HomeCodeBehind.setCurrentDate(currentDate);
             }).done(null, function (error) {
                 Currency.Utilities.showMessage("No internet connection.");
             });
@@ -30,7 +31,8 @@
             downloadedRates = JSON.parse(data.responseText);
             var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
             bindRatesDto(currencyManipulator);
-            Currency.HomeCodeBehind.setCurrentDate(new Date(date.toDateString()));
+            currentDate = new Date(date.toDateString());
+            Currency.HomeCodeBehind.setCurrentDate(currentDate);
         }, function (error) {
             Currency.Utilities.showMessage("No internet connection.");
         });
@@ -41,7 +43,8 @@
             downloadedRates = JSON.parse(data.responseText);
             var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
             bindRatesDto(currencyManipulator);
-            Currency.HomeCodeBehind.setCurrentDate(new Date(downloadedRates.timestamp * 1000));
+            var currentDate = new Date(downloadedRates.timestamp * 1000);
+            Currency.HomeCodeBehind.setCurrentDate(currentDate);
         }, function (error) {
             Currency.Utilities.showMessage("No internet connection.");
         });
@@ -55,16 +58,14 @@
     var getCurrenciesNames = function () {
         if (!currenciesNames) {
             currenciesNames = Currency.Data.getCurrencies();
-                //.done(function (success) { }, function (error) {
-            //Currency.Utilities.showMessage("No internet connection.");});
         }
 
         return currenciesNames;
     }
 
-    var changeBaseCurrency = function (event) {
+    var changeBaseCurrency = function (currencyCode) {
         if (downloadedRates) {
-            var currencyCode = event.target.options[event.target.selectedIndex].value;
+            
             var currencyManipulator = new Currency.Utilities.CurrencyAction(downloadedRates);
             currencyManipulator.changeBaseCurrency(currencyCode);
             var settings = Currency.Data.getSettings();

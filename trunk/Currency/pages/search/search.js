@@ -25,6 +25,20 @@
             document.getElementById("filter").style.display = "none";
             document.getElementById("latest").style.display = "none";
             document.getElementById("file-exporter").style.display = "none";
+        },
+
+        updateLayout: function (element, viewState, lastViewState) {
+            var searchList = document.getElementById("searchList").winControl;
+
+            if (viewState === Windows.UI.ViewManagement.ApplicationViewState.snapped) {
+                if (searchList.layout.horizontal) {
+                    searchList.layout = new WinJS.UI.ListLayout();
+
+                }
+            }
+            else if (!searchList.layout.horizontal) {
+                searchList.layout = new WinJS.UI.GridLayout();
+            }
         }
     });
  
@@ -41,4 +55,5 @@
     });
 
     searchPane.onquerysubmitted = function (args) { nav.navigate(searchPageURI, args); };
+
 })();

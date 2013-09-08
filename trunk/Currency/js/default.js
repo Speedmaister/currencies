@@ -21,8 +21,9 @@
             errorMessage = customEventObject.detail.exception.message;
             errorName = 'Exception';
         }
-        var optionsObject = { errName: errorName, errMsg: errorMessage };
-        Currency.Utilities.showMessage(errorMessage);
+
+        var optionsObject = { errName: errorName, errMsg: errorMessage, navHistory: nav.history  };
+        Currency.Utilities.errorReport(optionsObject);
         //nav.navigate("/pages/error/error.html", optionsObject);
         return true;
     }
@@ -71,7 +72,8 @@
 
                 baseCurrencySelect.addEventListener("change", function (event) {
                     baseCurrencyMenu.hide();
-                    Currency.ViewModels.changeBaseCurrency(event);
+                    var currencyCode = event.target.options[event.target.selectedIndex].value;
+                    Currency.ViewModels.changeBaseCurrency(currencyCode);
                 });
 
                 historicalBtn.addEventListener("click", function () {

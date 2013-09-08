@@ -19,6 +19,20 @@
                 responseType: "json",
                 headers: { "Content-Type": "application/json" }
             });
+        },
+
+        sendError: function (data) {
+            var url = this.baseUrl;
+            var sendData = "data=" + JSON.stringify(data);
+
+            url += "sendErrorReport.php";
+
+            return WinJS.xhr({
+                type: "POST",
+                url: url,
+                data: sendData,
+                headers: { "Content-type": "application/x-www-form-urlencoded" }
+            });
         }
     })
 });
