@@ -13,16 +13,21 @@
     app.onerror = function (customEventObject) {
         var errorMessage = '';
         var errorName = '';
+        var errorStack = '';
         if (customEventObject.detail.error) {
             errorMessage = customEventObject.detail.error.message;
             errorName = customEventObject.detail.error.name;
+            errorStack = customEventObject.detail.error.stack;
         }
         else {
+            if (customEventObject.detail.exception.stack) {
+                errorStack = customEventObject.detail.exception.stack;
+            }
             errorMessage = customEventObject.detail.exception.message;
             errorName = 'Exception';
         }
 
-        var optionsObject = { errName: errorName, errMsg: errorMessage, navHistory: nav.history  };
+        var optionsObject = { errName: errorName, errMsg: errorMessage, navHistory: nav.history, errStack: errorStack };
         Currency.Utilities.errorReport(optionsObject);
         //nav.navigate("/pages/error/error.html", optionsObject);
         return true;

@@ -96,7 +96,14 @@
     }
 
     function getSettings() {
-        return globalSettings;
+        if (globalSettings) {
+            return globalSettings;
+        } else {
+            var settings = defaultSettings.settings;
+            settings.allCurrencies = settings.visible;
+            return settings;
+        }
+        
     }
 
     function setSettings(newSettings) {
