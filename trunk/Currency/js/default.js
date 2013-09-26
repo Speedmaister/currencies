@@ -55,6 +55,8 @@
                 nav.history = app.sessionState.history;
             }
 
+            
+
             args.setPromise(WinJS.UI.processAll().then(function () {
                 var baseCurrencyBtn = document.getElementById("baseCurrency").winControl;
                 var historicalBtn = document.getElementById("historical").winControl;
@@ -74,7 +76,8 @@
                 var historicalDate = document.getElementById("historicalDate").winControl;
                 var latestRatesBtn = document.getElementById("latest").winControl;
                 var exportToFileBtn = document.getElementById("file-exporter").winControl;
-
+                var output = document.getElementById("contenthost");
+                
 
                 Currency.DefaultCodeBehind.setBaseCurrencySelect(baseCurrencySelect);
                 Currency.DefaultCodeBehind.setFromCurrencySelect(fromCyrrencySelect);

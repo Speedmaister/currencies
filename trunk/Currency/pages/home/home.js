@@ -7,6 +7,7 @@
 
     WinJS.UI.Pages.define("/pages/home/home.html", {
         ready: function (element, options) {
+            WinJS.Resources.processAll();
             Currency.HomeCodeBehind.setLongTitle();
             var baseCurrencySelect = Currency.DefaultCodeBehind.getBaseCurrencySelect();
             var fromCurrencySelect = Currency.DefaultCodeBehind.getFromCurrencySelect();
