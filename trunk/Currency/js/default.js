@@ -34,13 +34,22 @@
     }
 
     app.addEventListener("activated", function (args) {
-        if (args.detail.kind === activation.ActivationKind.launch) {
+        //if (args.detail.kind === activation.ActivationKind.search) {
+        //    Currency.Data.initSettings().then(function () {
+        //        Currency.HomeCodeBehind.callLoadLatestRates();
+        //    });
+        //}
+        if (args.detail.kind === activation.ActivationKind.launch || args.detail.kind === activation.ActivationKind.search) {
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
 
             } else {
                 // TODO: This application has been reactivated from suspension.
                 // Restore application state here.
             }
+
+            Currency.Data.initSettings().then(function () {
+                Currency.HomeCodeBehind.callLoadLatestRates();
+            });
 
             if (app.sessionState.history) {
                 nav.history = app.sessionState.history;

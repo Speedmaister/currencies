@@ -7,19 +7,16 @@
 
     WinJS.UI.Pages.define("/pages/home/home.html", {
         ready: function (element, options) {
-            Currency.Data.initSettings().then(function () {
-                Currency.HomeCodeBehind.callLoadLatestRates();
-                Currency.HomeCodeBehind.setLongTitle();
-                var baseCurrencySelect = Currency.DefaultCodeBehind.getBaseCurrencySelect();
-                var fromCurrencySelect = Currency.DefaultCodeBehind.getFromCurrencySelect();
-                var toCurrencySelect = Currency.DefaultCodeBehind.getToCurrencySelect();
+            Currency.HomeCodeBehind.setLongTitle();
+            var baseCurrencySelect = Currency.DefaultCodeBehind.getBaseCurrencySelect();
+            var fromCurrencySelect = Currency.DefaultCodeBehind.getFromCurrencySelect();
+            var toCurrencySelect = Currency.DefaultCodeBehind.getToCurrencySelect();
 
-                dataTransferManager.addEventListener("datarequested", Currency.ViewModels.shareFileHandler);
+            dataTransferManager.addEventListener("datarequested", Currency.ViewModels.shareFileHandler);
 
-                Currency.HomeCodeBehind.populateCurrencySelect(baseCurrencySelect);
-                Currency.HomeCodeBehind.populateCurrencySelect(fromCurrencySelect);
-                Currency.HomeCodeBehind.populateCurrencySelect(toCurrencySelect);
-            });
+            Currency.HomeCodeBehind.populateCurrencySelect(baseCurrencySelect);
+            Currency.HomeCodeBehind.populateCurrencySelect(fromCurrencySelect);
+            Currency.HomeCodeBehind.populateCurrencySelect(toCurrencySelect);
 
             var filterShowAll = document.getElementById("filterShowAll").winControl;
             var filterShowSelected = document.getElementById("filterShowSelected").winControl;
