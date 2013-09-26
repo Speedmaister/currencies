@@ -40,10 +40,18 @@
         <button data-win-control="WinJS.UI.AppBarCommand"
             data-win-res="{winControl: {label:'AppBarFilterButton'}}" 
              data-win-options="{id:'filter', label:'Filter', icon:'filter', section: 'global'}"></button>
-        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'baseCurrency', label:'My Currency', icon:'$', section: 'selection'}"></button>
-        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'file-exporter', label:'Export to file',tooltip:'Export current selected currencies to csv file.', icon:'save', section: 'global'}" ></button>
-        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'historical', label:'Historical data', icon:'calendar', section: 'selection'}"></button>
-        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{
+        <button data-win-control="WinJS.UI.AppBarCommand"
+            data-win-res="{winControl: {label:'MyCurrencyTag'}}" 
+             data-win-options="{id:'baseCurrency', label:'My Currency', icon:'$', section: 'selection'}"></button>
+        <button data-win-control="WinJS.UI.AppBarCommand"
+             data-win-res="{winControl: {label:'AppBarExportButton'}}" 
+             data-win-options="{id:'file-exporter', label:'Export to file',tooltip:'Export current selected currencies to csv file.', icon:'save', section: 'global'}" ></button>
+        <button data-win-control="WinJS.UI.AppBarCommand"
+             data-win-res="{winControl: {label:'AppBarHistoryButton'}}" 
+             data-win-options="{id:'historical', label:'Historical data', icon:'calendar', section: 'selection'}"></button>
+        <button data-win-control="WinJS.UI.AppBarCommand"
+            data-win-res="{winControl: {label:'AppBarLatestButton'}}" 
+             data-win-options="{
             id:'latest', 
             label:'Latest rates', 
             icon:'calendar', 
@@ -56,22 +64,22 @@
     </div>
     <div id="historicalDataMenu" data-win-control="WinJS.UI.Flyout" data-win-options="{anchor:'historical'}">
         <div id="historicalDate" data-win-control="WinJS.UI.DatePicker" data-win-options="{minYear: '2013'}"></div>
-        <button id="getHistoricalData" class="currencyButton">Get Rates</button>
+        <button id="getHistoricalData" class="currencyButton" data-win-res="{textContent:'HistoricalDataMenuGetRatesButton'}" ></button>
     </div>
     <div id="calcBody" data-win-control="WinJS.UI.Flyout" data-win-options="{anchor:'calc'}">
         <div id="calcContainer">
-            <h3>Amount</h3>
+            <h3  data-win-res="{textContent:'CalculatorMenuAmountTag'}"></h3>
             <input id="calcAmount" type="number" class="bodyCalc" />
-            <h3>From</h3>
+            <h3  data-win-res="{textContent:'CalculatorMenuFromTag'}"></h3>
             <select id="fromCurrencySelect" class="bodyCalc"></select>
-            <h3>To</h3>
+            <h3 data-win-res="{textContent:'CalculatorMenuToTag'}"></h3>
             <select id="toCurrencySelect" class="bodyCalc"></select>
-            <button id="calculateBtn" class="currencyButton bodyCalc">Calculate</button>
+            <button id="calculateBtn" class="currencyButton bodyCalc" data-win-res="{textContent:'CalculatorMenuCalculateButton'}"></button>
         </div>
     </div>
     <div id="filterMenu" data-win-control="WinJS.UI.Menu" data-win-options="{anchor:'filter'}">
-        <button id="filterShowAll" data-win-control="WinJS.UI.MenuCommand">Show all</button>
-        <button id="filterShowSelected" data-win-control="WinJS.UI.MenuCommand">Show selected</button>
+        <button id="filterShowAll" data-win-control="WinJS.UI.MenuCommand"  data-win-res="{textContent:'FilterMenuItemAll'}"></button>
+        <button id="filterShowSelected" data-win-control="WinJS.UI.MenuCommand"  data-win-res="{textContent:'FilterMenuItemSelected'}"></button>
     </div>
 </body>
 </html>
