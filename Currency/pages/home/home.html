@@ -19,10 +19,10 @@
             <div class="currency-header" data-win-bind="innerText: currency"></div>
             <img class="currency-flag" src="#" data-win-bind="src: flag" />
             <div class="currency-data-container">
-                <div class="currency-rate-tag">Rate for</div>
+                <div class="currency-rate-tag" data-win-res="{textContent: 'Ratetag'}"></div>
                 <div class="currency-amount" data-win-bind="innerText: amount"></div>
                 <div class="currency-rate" data-win-bind="innerText: rate"></div>
-                <div class="currency-invert-tag">Invert</div>
+                <div class="currency-invert-tag" data-win-res="{textContent: 'Invertag'}"></div>
                 <div class="currency-invert-rate" data-win-bind="innerText: invert"></div>
             </div>
         </div>
@@ -30,7 +30,7 @@
     <div class="fragment homepage">
         <header aria-label="Header content" role="banner">
             <h1 class="titlearea win-type-ellipsis">
-                <span class="pagetitle">Currency rates</span>
+                <span class="pagetitle"></span>
             </h1>
         </header>
         <section aria-label="Main content" role="main">
