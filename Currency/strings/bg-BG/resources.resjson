@@ -173,6 +173,7 @@
     "AppBarCalculatorButton" : "Калкулатор",
     "AppBarFilterButton" : "Филтър",
     "AppBarExportButton" : "Изкарай във файл",
+    "ExportButtonTooltip":"Изкарай избраните валутни курсове в файл.",
     "HistoricalDataMenuGetRatesButton" : "Зареди",
     "CalculatorMenuAmountTag" : "Стойност",
     "CalculatorMenuFromTag" : "От",

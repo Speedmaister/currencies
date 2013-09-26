@@ -173,6 +173,7 @@
     "AppBarCalculatorButton" : "Calculator",
     "AppBarFilterButton" : "Filter",
     "AppBarExportButton" : "Export to file",
+    "ExportButtonTooltip":"Export current selected currencies to csv file.",
     "HistoricalDataMenuGetRatesButton" : "Get Rates",
     "CalculatorMenuAmountTag" : "Amount",
     "CalculatorMenuFromTag" : "From",
