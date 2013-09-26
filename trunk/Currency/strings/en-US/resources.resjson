@@ -1,4 +1,4 @@
-{
+﻿{
     "AED" : "United Arab Emirates Dirham",
     "AFN" : "Afghan Afghani",
     "ALL" : "Albanian Lek",
@@ -165,7 +165,7 @@
     "ZMW" : "Zambian Kwacha",
     "ZWL" : "Zimbabwean Dollar",
     "Ratetag" : "Rate for",
-    "Intertag" : "Invert",
+    "Invertag" : "Invert",
     "HomeTitle" : "Currency rates for ",
     "MyCurrencyTag" : "My curenncy",
     "AppBarHistoryButton" : "Historical data",

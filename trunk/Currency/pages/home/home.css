@@ -53,13 +53,14 @@
     /*-ms-grid-column-span:2;*/
     -ms-grid-row: 5;
     font-size: 30px;
-    -ms-grid-column-align:end;
+    /*-ms-grid-column-align:end;*/
     text-align: right;
 }
 
 .currency-invert-tag {
     -ms-grid-column: 1;
-    -ms-grid-row: 8;
+    -ms-grid-column-span:2;
+    -ms-grid-row: 7;
     font-size: 15px;
 }
 
