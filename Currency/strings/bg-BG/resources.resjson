@@ -191,7 +191,7 @@
     "CrossRateListTitle" : "Списък с кръстосани курсове",
     "CrossRateListParagraph" : "Currencies from this list will be presented on each detail page, showing cross rate between them selves and currency for which detailed page is shown",
     "PreferencesAddToListButton" : "Добави",
-    "PreferencesDeleteSelectedButton" : "Изтрий избраните",
+    "PreferencesDeleteSelectedButton" : "Изтрий",
     "PreferencesSaveButton" : "Запази",
     "ShareTitle" : "Таблица с всички курсове.",
     "ShareDescription" : "Сподели всички валутни курсове за избраната дата."
