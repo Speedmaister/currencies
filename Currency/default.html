@@ -33,7 +33,10 @@
 <body>
     <div id="contenthost" data-win-control="Application.PageControlNavigator" data-win-options="{home: '/pages/home/home.html'}"></div>
     <div id="appbar" data-win-control="WinJS.UI.AppBar">
-        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'calc', label:'Calculator', icon:'calculator', section: 'global'}"></button>
+        <button data-win-control="WinJS.UI.AppBarCommand" 
+            data-win-res="{winControl: {label:'AppBarCalculatorButton'}}" 
+            data-win-options="{id:'calc', icon:'calculator', section: 'global'}">
+        </button>
         <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'filter', label:'Filter', icon:'filter', section: 'global'}"></button>
         <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'baseCurrency', label:'My Currency', icon:'$', section: 'selection'}"></button>
         <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'file-exporter', label:'Export to file',tooltip:'Export current selected currencies to csv file.', icon:'save', section: 'global'}" ></button>
