@@ -70,6 +70,8 @@
                 Currency.DefaultCodeBehind.setBaseCurrencySelect(baseCurrencySelect);
                 Currency.DefaultCodeBehind.setFromCurrencySelect(fromCyrrencySelect);
                 Currency.DefaultCodeBehind.setToCurrencySelect(toCyrrencySelect);
+                var maxYear = new Date().getFullYear();
+                historicalDate.maxYear = maxYear;
 
                 baseCurrencyBtn.addEventListener("click", function () {
                     baseCurrencyMenu.show();
