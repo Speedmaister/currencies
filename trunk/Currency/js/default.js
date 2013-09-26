@@ -149,12 +149,12 @@
                 WinJS.Application.onsettings = function (e) {
                     e.detail.applicationcommands = {
                         "privacyPolicy": {
-                            title: "Privacy Policy",
-                            href: "/pages/settings/privacyPolicy.html"
+                            title: WinJS.Resources.getString('PrivacyPolicyTitle').value,
+                            href: "/pages/settings/privacy.html"
                         },
 
                         "preferences": {
-                            title: "Preferences",
+                            title: WinJS.Resources.getString('PreferencesTitle').value,
                             href: "/pages/settings/preferences.html"
                         }
                     };

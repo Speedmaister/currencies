@@ -26,16 +26,16 @@
                     currencies = JSON.parse(data.responseText);
 
                     if (kind == "long") {
-                        title.innerHTML = "Currency rates for " + currencies[globalSettings.baseCurrency];
+                        title.innerHTML = WinJS.Resources.getString('HomeTitle').value + WinJS.Resources.getString(globalSettings.baseCurrency).value;
                     } else {
-                        title.innerHTML = "Currency rates for " + globalSettings.baseCurrency;
+                        title.innerHTML = WinJS.Resources.getString('HomeTitle').value + globalSettings.baseCurrency;
                     }
                 });
             } else {
                 if (kind == "long") {
-                    title.innerHTML = "Currency rates for " + currencies[globalSettings.baseCurrency];
+                    title.innerHTML = WinJS.Resources.getString('HomeTitle').value + WinJS.Resources.getString(globalSettings.baseCurrency).value;
                 } else {
-                    title.innerHTML = "Currency rates for " + globalSettings.baseCurrency;
+                    title.innerHTML = WinJS.Resources.getString('HomeTitle').value + globalSettings.baseCurrency;
                 }
             }
         }
@@ -58,7 +58,7 @@
         var globalSettings = Currency.ViewModels.getGlobalSettings();
         var sortCurrencies = [];
         for (var currency in currencies) {
-            sortCurrencies.push([currency, currencies[currency]]);
+            sortCurrencies.push([currency, WinJS.Resources.getString(currency).value]);
         }
 
         sortCurrencies.sort(function (a, b) {

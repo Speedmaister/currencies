@@ -12,7 +12,7 @@
     var searchPageURI = "/pages/search/search.html";
     var searchPane = appModel.Search.SearchPane.getForCurrentView();
 
-    searchPane.placeholderText = "Search for a currency.";
+    searchPane.placeholderText = WinJS.Resources.getString('SearchPlaceholder').value;
     searchPane.showOnKeyboardInput = true;
 
     ui.Pages.define(searchPageURI, {
