@@ -69,7 +69,9 @@
         savePicker.suggestedFileName = "New Rates Table";
 
         savePicker.pickSaveFileAsync().then(function (file) {
-            Windows.Storage.FileIO.writeTextAsync(file, dataToString);
+            if (file) {
+                Windows.Storage.FileIO.writeTextAsync(file, dataToString);
+            }
         });
     }
 

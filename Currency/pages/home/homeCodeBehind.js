@@ -98,7 +98,7 @@
     {
         var currentDateField = document.getElementById("currentDate");
         if (currentDateField) {
-            currentDateField.innerText = date.toDateString();
+            currentDateField.innerText = date.toLocaleDateString();//toDateString();
         }
     }
 
