@@ -15,24 +15,21 @@
              data-win-options="{settingsCommandId:'preferences', width:'narrow'}">
             <div class="win-ui-dark win-header" style="background-color:#0887A7"> 
                 <button type="button" onclick="WinJS.UI.SettingsFlyout.show()" class="win-backbutton"></button>
-                <div class="win-label">Preferences</div>
+                <div class="win-label"  data-win-res="{textContent:'PreferencesTitle'}"></div>
                 <img src="/images/smalllogo.png" style="position: absolute; right: 40px;"/>
             </div>
             <div class="win-content">
                 <div class="win-settings-section">
                     <div id="preferencesDiv">
-                        <h3>My Currency</h3>
+                        <h3 data-win-res="{textContent:'MyCurrencyTag'}"></h3>
                         <select id="settingsBaseCurrencySelect" class="settingsUserContent">
                         </select>
-                        <h3>Cross Rate List</h3>
-                        <p>
-                            Currencies from this list will be presented on each detail page, 
-                            showing cross rate between them selves and currency for which detailed page is shown
-                        </p>
+                        <h3 data-win-res="{textContent:'CrossRateListTitle'}"></h3>
+                        <p  data-win-res="{textContent:'CrossRateListParagraph'}"></p>
                         <select id="settingsCrossRateSelect" class="settingsUserContent">
                         </select>
-                        <button id="settingsAdd" class="currencyButton">Add to list</button>
-                        <button id="settingsDelete" class="currencyButton">Delete selected</button>
+                        <button id="settingsAdd" class="currencyButton" data-win-res="{textContent:'PreferencesAddToListButton'}"></button>
+                        <button id="settingsDelete" class="currencyButton" data-win-res="{textContent:'PreferencesDeleteSelectedButton'}"></button>
                         <div id="preferences-list" data-win-control="WinJS.UI.ListView" data-win-options="{
                             itemTemplate:select('#preferences-template'),
                             itemDataSource:Currency.Settings.ViewModels.codeList.dataSource,
@@ -41,7 +38,7 @@
                                     }
                             }">
                         </div> 
-                        <button id="settingsSave" class="currencyButton">Save Preferences</button>
+                        <button id="settingsSave" class="currencyButton"  data-win-res="{textContent:'PreferencesSaveButton'}"></button>
                     </div>
                 </div>
             </div>

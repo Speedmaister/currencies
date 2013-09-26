@@ -16,6 +16,7 @@
             Currency.HomeCodeBehind.populateCurrencySelect(settingsBaseCurrencySelect);
             Currency.HomeCodeBehind.populateCurrencySelect(settingsCrossRateSelect);
 
+            WinJS.Resources.processAll();
 
             settingsAdd.addEventListener("click", function () {
                 Currency.Settings.ViewModels.addCurrencyToList(settingsCrossRateSelect);

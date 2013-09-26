@@ -18,7 +18,7 @@
     ui.Pages.define(searchPageURI, {
         ready: function (element, options) {
             var template = document.getElementById("currency-template");
-            WinJS.Resources.processAll(template);
+            WinJS.Resources.processAll();
             WinJS.Binding.processAll(element, Currency.Search.ViewModels);
             Currency.Search.ViewModels.submitSearchText(options.queryText);
 
