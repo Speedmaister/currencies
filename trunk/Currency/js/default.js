@@ -55,8 +55,6 @@
                 nav.history = app.sessionState.history;
             }
 
-
-
             args.setPromise(WinJS.UI.processAll().then(function () {
                 var baseCurrencyBtn = document.getElementById("baseCurrency").winControl;
                 var historicalBtn = document.getElementById("historical").winControl;

@@ -187,8 +187,8 @@
     "SearchTitle" : "Search results for: ",
     "PrivacyPolicyShortTitle" : "Privacy Policy",
     "PrivacyPolicyTitle" : "Privacy Policy",
-    "PrivacyPolicyParagraph1" : "Free Currency Converter is using Internet connection in order to provide to the client updated and precise information about currency rates.",
-    "PrivacyPolicyParagraph2" : "Free Currency Converter does not record any personal information. The only personal information it  needs is the home currency of the client. In order to provide relevant information, on the first launch the IP of the client is checked against IP database and the currency code is recorded. Neither IP nor other personal information, except  currency code, is recorded or used by the application. This record can be changed at any time by pressing \"My Currency\" button on the application bar.",
+    "PrivacyPolicyParagraph1" : "Free Currency Rates is using Internet connection in order to provide to the client updated and precise information about currency rates.",
+    "PrivacyPolicyParagraph2" : "Free Currency Rates does not record any personal information. The only personal information it  needs is the home currency of the client. In order to provide relevant information, on the first launch the IP of the client is checked against IP database and the currency code is recorded. Neither IP nor other personal information, except  currency code, is recorded or used by the application. This record can be changed at any time by pressing \"My Currency\" button on the application bar.",
     "PreferencesTitle" : "Preferences",
     "CrossRateListTitle" : "Cross Rate List",
     "CrossRateListParagraph" : "Currencies from this list will be presented on each detail page, showing cross rate between them selves and currency for which detailed page is shown",
@@ -197,5 +197,13 @@
     "PreferencesSaveButton" : "Save preferences",
     "ShareTitle" : "Rates table for all currencies.",
     "ShareDescription" : "Get all currency rates from the database for the selected date.",
-    "SearchPlaceholder" : "Search for a currency"
+    "SearchPlaceholder" : "Search for a currency",
+    "NoCurrenciesSelectedMessage" : "No currencies are selected!",
+    "ShareFileProblemMessage" : "Problem occured while trying to share file.",
+    "NoConnectionMessage" : "No internet connection.",
+    "SendErrorReportMessage" : "An error has ocured. Please, press 'Send Report' to send us error report. This will help us deliver more stable software. No personal data will be sent.",
+    "SendErrorReportTitle" : "Something went wrong!",
+    "SendErrorReportCommand" : "Send Report",
+    "CancelErrorReportCommand" : "Close",
+    "PastDaysMessage" : "Only past dates can be choosen."
 }

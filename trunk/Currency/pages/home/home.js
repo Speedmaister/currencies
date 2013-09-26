@@ -30,7 +30,7 @@
                     if (selection.length > 0) {
                         Currency.HomeCodeBehind.filterSelected(selection);
                     } else {
-                        Currency.Utilities.showMessage("No currencies are selected!");
+                        Currency.Utilities.showMessage(WinJS.Resources.getString('NoCurrenciesSelectedMessage').value);
                     }
                 }
                

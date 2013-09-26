@@ -187,16 +187,23 @@
     "SearchTitle" : "Резултати от търсенето за: ",
     "PrivacyPolicyShortTitle" : "Конфиденциалност",
     "PrivacyPolicyTitle" : "Изявление За Конфиденциалност",
-    "PrivacyPolicyParagraph1" : "Free Currency Converter is using Internet connection in order to provide to the client updated and precise information about currency rates.",
-    "PrivacyPolicyParagraph2" : "Free Currency Converter does not record any personal information. The only personal information it  needs is the home currency of the client. In order to provide relevant information, on the first launch the IP of the client is checked against IP database and the currency code is recorded. Neither IP nor other personal information, except  currency code, is recorded or used by the application. This record can be changed at any time by pressing \"My Currency\" button on the application bar.",
+    "PrivacyPolicyParagraph1" : "Free Currency Rates използва интернет връзка, за да Ви предостави актуална и точна информация за валутните курсове.",
+    "PrivacyPolicyParagraph2" : "Free Currency Rates не записва никаква лична информация. Единствената лична информация от която се нуждае е собствената валута на клиента. За да може да прeдостави съответна информация, при първо стартиране IP адреса на клиента се проверява в база данни и се записва кода на валутата. Нито IP, нито каквато и да е друга лична информация, освен кода на валутата, не се записва или използва от приложението. Този запис може да бъде променен по всяко време с натискане на бутона \"Моята валута\" от лентата с инструменти на приложението.",
     "PreferencesTitle" : "Предпочитания",
     "CrossRateListTitle" : "Списък с кръстосани курсове",
-    "CrossRateListParagraph" : "Currencies from this list will be presented on each detail page, showing cross rate between them selves and currency for which detailed page is shown",
+    "CrossRateListParagraph" : "Валутите от този списък ще се показват на всяка страница с подробни данни, показвайки кръстосан курс между тях и валутата чиято страница е отворена",
     "PreferencesAddToListButton" : "Добави",
     "PreferencesDeleteSelectedButton" : "Изтрий",
     "PreferencesSaveButton" : "Запази",
     "ShareTitle" : "Таблица с всички курсове.",
     "ShareDescription" : "Сподели всички валутни курсове за избраната дата.",
-    "SearchPlaceholder" : "Търси валути"
+    "SearchPlaceholder" : "Търси валути",
+    "NoCurrenciesSelectedMessage" : "Няма избрани валути!",
+    "ShareFileProblemMessage" : "Възникна проблем при споделянето на файла.",
+    "NoConnectionMessage" : "Няма интернет връзка.",
+    "SendErrorReportMessage" : "Възникна грешка. Моля натиснете бутона 'Изпрати рапорт' за да ни изпратите доклад за грешката. Това ще ни помогне да Ви предоставим по-стабилен софтуеър. Никакви лични данни няма да бъдат изпратени.",
+    "SendErrorReportTitle" : "Нещо не е наред!",
+    "SendErrorReportCommand" : "Изпрати рапорт",
+    "CancelErrorReportCommand" : "Затвори",
+    "PastDaysMessage" : "Само минали дни могат да бъдат избирани."
 }
-

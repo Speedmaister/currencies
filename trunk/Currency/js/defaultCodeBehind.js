@@ -53,7 +53,7 @@
         if (date < today) {
             Currency.ViewModels.loadHistorical(date);
         } else {
-            Currency.Utilities.showMessage("Only past dates can be choosen.");
+            Currency.Utilities.showMessage(WinJS.Resources.getString('PastDaysMessage').value);
             isSet = false;
         }
 
