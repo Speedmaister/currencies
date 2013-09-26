@@ -21,7 +21,7 @@
                 var currentDate = new Date(downloadedRates.timestamp * 1000);
                 Currency.HomeCodeBehind.setCurrentDate(currentDate);
             }).done(null, function (error) {
-                Currency.Utilities.showMessage("No internet connection.");
+                Currency.Utilities.showMessage(WinJS.Resources.getString('NoConnectionMessage').value);
             });
         }
     }
@@ -34,7 +34,7 @@
             currentDate = new Date(date.toDateString());
             Currency.HomeCodeBehind.setCurrentDate(currentDate);
         }, function (error) {
-            Currency.Utilities.showMessage("No internet connection.");
+            Currency.Utilities.showMessage(WinJS.Resources.getString('NoConnectionMessage').value);
         });
     }
 
@@ -46,7 +46,7 @@
             var currentDate = new Date(downloadedRates.timestamp * 1000);
             Currency.HomeCodeBehind.setCurrentDate(currentDate);
         }, function (error) {
-            Currency.Utilities.showMessage("No internet connection.");
+            Currency.Utilities.showMessage(WinJS.Resources.getString('NoConnectionMessage').value);
         });
     }
 

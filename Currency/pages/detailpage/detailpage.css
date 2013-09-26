@@ -149,17 +149,17 @@ canvas {
         -ms-grid-rows: 1fr;
     }
 
-    #currency-small-list-view {
+    #currency-history .currency-history-table-container {
         -ms-grid-column: 1;
         -ms-grid-row: 1;
-        height: 100%;
+        height: calc(100% - 60px);
     }
 
     canvas {
         display: none;
     }
 
-    #currency-history {
+    #currency-small-list-view {
         display: none;
     }
 

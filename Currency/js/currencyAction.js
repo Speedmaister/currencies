@@ -77,11 +77,11 @@ WinJS.Namespace.define("Currency.Utilities", {
 
     errorReport: function (data) {
         var msg = new Windows.UI.Popups.MessageDialog(
-            "An error has ocured. Please, press 'Send Report' to send us error report. This will help us deliver more stable software. No personal data will be sent.", 
-            "Something went wrong!");
+            WinJS.Resources.getString('SendErrorReportMessage').value,
+            WinJS.Resources.getString('SendErrorReportTitle').value);
 
         msg.commands.append(new Windows.UI.Popups.UICommand(
-           "Send Report",
+           WinJS.Resources.getString('SendErrorReportCommand').value,
            function () {
                Currency.Data.sendErrorReport(data).then(function (data) {
                    var d = data;//TODO: toast notification
@@ -90,7 +90,7 @@ WinJS.Namespace.define("Currency.Utilities", {
                });
            }));
         msg.commands.append(new Windows.UI.Popups.UICommand(
-            "Close",
+            WinJS.Resources.getString('CancelErrorReportCommand').value,
             function () { }));
 
         // Set the command that will be invoked by default

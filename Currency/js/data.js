@@ -27,7 +27,7 @@
 
                     configureSettings(visible, complete);
                 }, function () {
-                    Currency.Utilities.showMessage("No internet connection.");
+                    Currency.Utilities.showMessage(WinJS.Resources.getString('NoConnectionMessage').value);
                 })
             });
         });
@@ -55,7 +55,7 @@
                 .then(function () { complete() });
             });
         }, function (message) {
-            Currency.Utilities.showMessage("No internet connection.");
+            Currency.Utilities.showMessage(Currency.Utilities.showMessage(WinJS.Resources.getString('NoConnectionMessage').value));
         });
     }
 

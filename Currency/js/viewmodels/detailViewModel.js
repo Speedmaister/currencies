@@ -50,7 +50,7 @@
                     deferral.complete();
                 });
             }, function (error) {
-                Currency.Utilities.showMessage("Problem occured while trying to share file.");
+                Currency.Utilities.showMessage(WinJS.Resources.getString('ShareFileProblemMessage').value);
                 deferral.complete();
             });
     }
