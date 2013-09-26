@@ -14,7 +14,7 @@
             settings = Currency.ViewModels.getGlobalSettings();
             for (var i = 0; i < settings.mainCurrencies.length; i++) {
                 var code = settings.mainCurrencies[i];
-                var name = currencies[code];
+                var name = WinJS.Resources.getString(code).value;
 
                 codeDTO = new Currency.Models.CrossRateListModel(code, name);
                 codeList.push(codeDTO);
