@@ -18,6 +18,8 @@
                 Currency.Utilities.showMessage("No internet connection.");
             });
 
+            WinJS.Resources.processAll();
+
             document.getElementById("baseCurrency").style.display = "none";
             document.getElementById("historical").style.display = "none";
             document.getElementById("filter").style.display = "none";

@@ -12,7 +12,7 @@
         var currencyAction = new Currency.Utilities.CurrencyAction(rates);
         bindedDtos.dataSource.list.splice(0, bindedDtos.length);
         var mainCurrencies = Currency.ViewModels.getGlobalSettings().mainCurrencies;
-        collectionOfDtos = Currency.ViewModels.getCollectionOfDtos(mainCurrencies,currencyAction);
+        collectionOfDtos = Currency.ViewModels.getCollectionOfDtos(mainCurrencies, currencyAction);
         var i;
         for (i = 0; i < collectionOfDtos.length; i++) {
             collectionOfDtos[i].rate = currencyAction.exchange(currentCurrency.amount,
@@ -27,7 +27,8 @@
     var getCurrencyFullName = function (currentCurrency, title) {
         Currency.ViewModels.getCurrenciesNames().then(function (data) {
             var currencyNames = JSON.parse(data.responseText);
-            title.innerText = "Details for " + currencyNames[currentCurrency.currency];
+            var currencyLocalName = WinJS.Resources.getString(currentCurrency.currency).value;
+            title.innerText = WinJS.Resources.getString("DetailsTitle").value + currencyLocalName;
         });
     }
 
