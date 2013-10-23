@@ -205,5 +205,7 @@
     "SendErrorReportTitle" : "Something went wrong!",
     "SendErrorReportCommand" : "Send Report",
     "CancelErrorReportCommand" : "Close",
-    "PastDaysMessage" : "Only past dates can be choosen."
+    "PastDaysMessage" : "Only past dates can be choosen.",
+    "FileSuccessfulySavedMessage" : "File is saved successfully!",
+    "FileFailedSaveMessage" : "File can not be saved!"
 }
