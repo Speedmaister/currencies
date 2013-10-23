@@ -70,7 +70,13 @@
 
         savePicker.pickSaveFileAsync().then(function (file) {
             if (file) {
-                Windows.Storage.FileIO.writeTextAsync(file, dataToString);
+                Windows.Storage.FileIO.writeTextAsync(file, dataToString)
+                    .then(function () {
+                        Currency.Utilities.showToast(WinJS.Resources.getString('FileSuccessfulySavedMessage').value);
+                    },
+                    function () {
+                        Currency.Utilities.showToast(WinJS.Resources.getString('FileFailedSaveMessage').value);
+                    });
             }
         });
     }

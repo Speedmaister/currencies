@@ -340,13 +340,16 @@
     <MainPackageIdentityName>40907StamoPetkov.FreeCurrencyRates</MainPackageIdentityName>
     <ReservedNames>
       <ReservedName>Free Currency Rates</ReservedName>
+      <ReservedName>Безплатни Валутни Курсове</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
-  <AccountPackageIdentityNames />
+  <AccountPackageIdentityNames>
+    <MainPackageIdentityName>40907StamoPetkov.Londonbicycles</MainPackageIdentityName>
+  </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://appdev.microsoft.com:443/StorePortals/Developer/Catalog/ReleaseAnchor/05c0bddf-2ea5-4526-8f23-a188c706fca4">
     <PackageInfo>
       <PackageArchitecture>neutral</PackageArchitecture>
-      <PackageMaxArchitectureVersion>1.0.0.1</PackageMaxArchitectureVersion>
+      <PackageMaxArchitectureVersion>1.1.0.5</PackageMaxArchitectureVersion>
     </PackageInfo>
   </PackageInfoList>
 </StoreAssociation>

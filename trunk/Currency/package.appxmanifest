@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="40907StamoPetkov.FreeCurrencyRates" Version="1.1.0.3" Publisher="CN=FBDA07BF-B77C-4253-A67B-D52A64DECCE5" />
+  <Identity Name="40907StamoPetkov.FreeCurrencyRates" Version="1.1.0.6" Publisher="CN=FBDA07BF-B77C-4253-A67B-D52A64DECCE5" />
   <Properties>
     <DisplayName>Free Currency Rates</DisplayName>
     <PublisherDisplayName>Stamo Petkov</PublisherDisplayName>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <VisualElements DisplayName="Free Currency Rates" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="Currency rates for more than 150 world currencies, updated daily. Historical data available. Currency calculator. Export rates through share contract or file picker." ForegroundText="light" BackgroundColor="#0887A7">
+      <VisualElements DisplayName="Free Currency Rates" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="Currency rates for more than 150 world currencies, updated daily. Historical data available. Currency calculator. Export rates through share contract or file picker." ForegroundText="light" BackgroundColor="#0887A7" ToastCapable="true">
         <DefaultTile ShowName="allLogos" ShortName="Currencies" WideLogo="images\WideLogo.png" />
         <SplashScreen Image="images\splashscreen.png" BackgroundColor="#0887A7" />
         <InitialRotationPreference>

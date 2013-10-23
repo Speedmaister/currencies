@@ -33,6 +33,7 @@
                         <div id="preferences-list" data-win-control="WinJS.UI.ListView" data-win-options="{
                             itemTemplate:select('#preferences-template'),
                             itemDataSource:Currency.Settings.ViewModels.codeList.dataSource,
+                            tapBehavior : 'directSelect',
                             layout:{
                                         type: WinJS.UI.ListLayout
                                     }

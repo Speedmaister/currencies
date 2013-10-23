@@ -75,6 +75,25 @@ WinJS.Namespace.define("Currency.Utilities", {
         msg.showAsync().done();
     },
 
+    showToast: function (message)
+    {
+        var notifications = Windows.UI.Notifications;
+        var template = notifications.ToastTemplateType.toastText01;
+        var toastXml = notifications.ToastNotificationManager.getTemplateContent(template);
+        var toastTextElements = toastXml.getElementsByTagName("text");
+        toastTextElements[0].appendChild(toastXml.createTextNode(message));
+        var toastImageElements = toastXml.getElementsByTagName("image");
+        //toastImageElements[0].setAttribute("src", "ms-appx:///images/storelogo.png");
+        //toastImageElements[0].setAttribute("alt", "red graphic");
+
+        var toastNode = toastXml.selectSingleNode("/toast");
+        toastNode.setAttribute("duration", "short");
+        var toast = new notifications.ToastNotification(toastXml);
+
+        var toastNotifier = notifications.ToastNotificationManager.createToastNotifier();
+        toastNotifier.show(toast);
+    },
+
     errorReport: function (data) {
         var msg = new Windows.UI.Popups.MessageDialog(
             WinJS.Resources.getString('SendErrorReportMessage').value,
