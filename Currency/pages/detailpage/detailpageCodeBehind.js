@@ -8,38 +8,40 @@
 
     function drawData(data, dtoObject) {
         currentCurrency = dtoObject;
-        var context = document.getElementById("currency-chart").getContext("2d");
-        var divContainer = document.getElementById("currency-history");
-        var tableOfData = divContainer.childNodes[3].childNodes[1];
-        var responseData = JSON.parse(data.responseText);
-        var chartData = {
-            labels: [],
-            datasets: [{
-                fillColor: "rgba(220,220,220,0.5)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
-                pointStrokeColor: "#fff",
-                data: []
-            }]
+        if (document.getElementById("currency-chart")) {
+            var context = document.getElementById("currency-chart").getContext("2d");
+            var divContainer = document.getElementById("currency-history");
+            var tableOfData = divContainer.childNodes[3].childNodes[1];
+            var responseData = JSON.parse(data.responseText);
+            var chartData = {
+                labels: [],
+                datasets: [{
+                    fillColor: "rgba(220,220,220,0.5)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    data: []
+                }]
+            }
+
+            for (var date in responseData) {
+                var formatedDate = formateReceivedDate(date);
+                var rate = formatRate(responseData[date]);
+                addRowToTable(tableOfData, formatedDate, rate.toFixed(4));
+                chartData.labels.push(formatedDate);
+                chartData.datasets[0].data.push(rate);
+            }
+
+            var options = {
+                scaleFontColor: "#FFF"
+            }
+
+            checkValues(chartData.datasets[0].data, options);
+
+            var chart = new Chart.drawer(context).Line(chartData, options);
+
+            Currency.DetailCodeBehind.ViewModels.getCollectionOfDtos(currentCurrency);
         }
-
-        for (var date in responseData) {
-            var formatedDate = formateReceivedDate(date);
-            var rate = formatRate(responseData[date]);
-            addRowToTable(tableOfData, formatedDate, rate.toFixed(4));
-            chartData.labels.push(formatedDate);
-            chartData.datasets[0].data.push(rate);
-        }
-
-        var options = {
-            scaleFontColor: "#FFF"
-        }
-
-        checkValues(chartData.datasets[0].data, options);
-
-        var chart = new Chart.drawer(context).Line(chartData, options);
-
-        Currency.DetailCodeBehind.ViewModels.getCollectionOfDtos(currentCurrency);
     }
 
     function checkValues(data, options) {

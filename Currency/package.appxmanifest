@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="40907StamoPetkov.FreeCurrencyRates" Version="1.1.0.6" Publisher="CN=FBDA07BF-B77C-4253-A67B-D52A64DECCE5" />
+  <Identity Name="40907StamoPetkov.FreeCurrencyRates" Version="1.1.0.8" Publisher="CN=FBDA07BF-B77C-4253-A67B-D52A64DECCE5" />
   <Properties>
     <DisplayName>Free Currency Rates</DisplayName>
     <PublisherDisplayName>Stamo Petkov</PublisherDisplayName>
