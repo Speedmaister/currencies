@@ -1,0 +1,1 @@
+Client side app for windows store. Gets any currency rate.
